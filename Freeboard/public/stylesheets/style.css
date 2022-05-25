@@ -53,20 +53,25 @@ ul {
 
 .posts {
   display: flex;
-  justify-content: space-between;  
+  justify-content: space-between; 
+  
+  margin-bottom: 10px;
 }
 
 .hot-posts {
   width: 45vw;
-  height: 30vh;
+  height: 65vh;
 
   border: 1px solid;
-
+  padding: 5px;
+  box-sizing: border-box;
 }
 
 .new-posts {
   width: 45vw;
-  height: 30vh;
+  height: 65vh;
 
   border: 1px solid;
+  padding: 5px;
+  box-sizing: border-box;
 }
