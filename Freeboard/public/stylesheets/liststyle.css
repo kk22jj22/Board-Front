@@ -1,0 +1,19 @@
+.list-column {   
+    background-color: rgb(196, 196, 196);
+}
+
+.newpost-button {
+    width: 55px;
+    height: 25px;
+
+    background-color: rgb(58, 143, 255);
+    border-style: none;
+    color: white;
+
+    margin-top: 5px;
+}
+
+a:visited, a:link, a:hover {
+    text-decoration: none;
+    color: white;
+}

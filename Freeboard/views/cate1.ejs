@@ -1,12 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/liststyle.css">
   <title>Cate1</title>
 </head>
 <body>
-  
+  <!--nav 유지한 상태로 페이지 이동 방법 확인 필요-->
+  <!--list page-->
+  <div>
+    <div>
+      <!--컬럼 : NO, 제목, 코멘트 수, 작성자, 작성일자, 조회수-->
+      <table>
+        <tr class="list-column">
+          <td>NO</td>
+          <td>제목</td>
+          <td>코멘트수</td>
+          <td>작성자</td>
+          <td>작성일자</td>
+          <td>조회수</td>
+        </tr>
+      </table>   
+    </div>
+    <div>
+      게시물이 존재하지 않습니다.
+    </div>
+  </div>
+  <button class="newpost-button" id="new-post"><a href="/newpost">New</a></button>
 </body>
 </html>
