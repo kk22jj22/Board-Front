@@ -1,5 +1,12 @@
-.list-column {   
-    background-color: rgb(196, 196, 196);
+
+.post-list {
+    width: 70%;
+    border-top: 1px solid rgb(242, 237, 237);
+    border-collapse: collapse;
+}
+
+.post-list-column {   
+    background-color: rgb(242, 237, 237);
 }
 
 .newpost-button {
@@ -10,10 +17,16 @@
     border-style: none;
     color: white;
 
+    cursor: pointer;
+
     margin-top: 5px;
 }
 
 a:visited, a:link, a:hover {
     text-decoration: none;
     color: white;
+}
+
+.post-comments {
+    margin-top: 5px;
 }
