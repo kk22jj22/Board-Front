@@ -23,7 +23,7 @@ ul {
   list-style-type: none;
 }
 
-.nav-left-items > a {
+.nav-left-items > a, .nav-right-items > a {
   text-decoration: none;
   color: black;
 }
@@ -32,13 +32,9 @@ ul {
   margin-right: 59.2px;
 }
 
-.nav-left-items {
+.nav-left-items, .nav-right-items{
   padding-right: 10px;
   cursor: pointer;
-}
-
-.nav-right-items {
-  padding-left: 10px;
 }
 
 #main-logo {
@@ -112,18 +108,26 @@ ul {
   background-color: rgb(242, 237, 237);
 }
 
-.newpost-button {
+.blue-button {
   width: 55px;
   height: 25px;
 
   background-color: rgb(58, 143, 255);
   border-style: none;
+
+  text-decoration: none;
+  color: white;
   cursor: pointer;
 
   margin-top: 5px;
 }
 
-.aff {
+.blue-button > a {
+  text-decoration: none;
+  color: white;
+}
+
+.align {
   display: flex;
   justify-content: center;
 }
@@ -136,11 +140,6 @@ ul {
   
   margin-top: 59.2px;
   margin-left: 59.2px;
-}
-
-.newpost-button > a {
-  text-decoration: none;
-  color:white;
 }
 
 #new-post-title {
@@ -158,4 +157,8 @@ ul {
 
 .post-comments {
   margin-top: 5px;
+}
+
+.login-input, .signup-input {
+  margin-bottom: 5px;
 }

@@ -8,11 +8,11 @@
   <title>Cate1</title>
 </head>
 <body>
-  <script id="replace_with_navbar" src="/javascripts/nav.js" type="text/javascript"></script>
+  <%-include ('nav.ejs')%>
   <div class="container">
-    <h1>Category1</h1>
+    <h1>Category</h1>
     <div class="post-container">
-      <!--컬럼 : NO, 제목, 코멘트 수, 작성자, 작성일자, 조회수-->
+      <!--컬럼 : NO, 제목, 코멘트 수, 작성자, 작성일자, 조회수. cateid를 통해 cate1/2를 불러온다. 별도 페이지 생성 X-->
       <table class="post-list">
         <tr class="post-list-column">
           <td>NO</td>
@@ -27,9 +27,9 @@
         </tr>     
       </table>
     </div>
-    <div class="aff">
+    <div class="align">
       <div class="button-align">
-        <button class="newpost-button" id="new-post"><a href="/newpost">New</a></button>
+        <button class="blue-button" id="new-post"><a href="/newpost">New</a></button>
       </div>
     </div>
   </div>
