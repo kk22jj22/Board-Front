@@ -104,12 +104,12 @@ ul {
   margin-left: 59.2px;
 }
 
-.post-list-column {   
+th {   
   background-color: rgb(242, 237, 237);
 }
 
 .blue-button {
-  width: 55px;
+  width: 60px;
   height: 25px;
 
   background-color: rgb(58, 143, 255);
@@ -118,8 +118,6 @@ ul {
   text-decoration: none;
   color: white;
   cursor: pointer;
-
-  margin-top: 5px;
 }
 
 .blue-button > a {
@@ -142,23 +140,40 @@ ul {
   margin-left: 59.2px;
 }
 
-#new-post-title {
+#newpost-title {
   width: 50%;
   height: 3vh;
+  line-height: 3vh;
+  resize: none;
 }
 
-#new-post-contents {
+#newpost-contents {
   width: 50%;
   height: 25vh;
+  resize: none;
 
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
+/* #newpost-contents::-webkit-input-placeholder {
+  transform: translateY(-100px);
+} */
+
 .post-comments {
   margin-top: 5px;
 }
 
-.login-input, .signup-input {
-  margin-bottom: 5px;
+.login-input {
+  width: 200px;
+  height: 20px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+}
+
+.join-input {
+  width: 250px;
+  height: 20px;
+  margin-right: 5px;
+  margin-bottom: 10px;
 }

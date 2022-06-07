@@ -14,24 +14,31 @@
     <div class="post-container">
       <!--컬럼 : NO, 제목, 코멘트 수, 작성자, 작성일자, 조회수. cateid를 통해 cate1/2를 불러온다. 별도 페이지 생성 X-->
       <table class="post-list">
-        <tr class="post-list-column">
-          <td>NO</td>
-          <td>제목</td>
-          <td>코멘트수</td>
-          <td>작성자</td>
-          <td>작성일자</td>
-          <td>조회수</td>
-        </tr>
-        <tr class="post-detail">
-          <td colspan="6">등록된 게시물이 없습니다.</td>
-        </tr>     
+        <thead>
+          <tr class="post-list-column">
+            <th scope="col">No</th>
+            <th scope="col">제목</th>
+            <th scope="col">코멘트수</th>
+            <th scope="col">작성자</th>
+            <th scope="col">작성일자</th>
+            <th scope="col">조회수</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="post-contents" id="post-contents">
+            <td colspan="6">등록된 게시물이 없습니다.</td>
+          </tr>  
+        </tbody>
       </table>
     </div>
     <div class="align">
       <div class="button-align">
-        <button class="blue-button" id="new-post"><a href="/newpost">New</a></button>
+        <button class="blue-button" id="new-post">New</button>
       </div>
+    </div>
+    <div id="testarea">
     </div>
   </div>
 </body>
+<script type="module" src="/javascripts/main.js"></script>
 </html>

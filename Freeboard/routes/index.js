@@ -18,12 +18,16 @@ router.get('/newpost', function(req, res, next) {
   res.render('newpost', { title: 'Express' });
 });
 
-router.get('/signup', function(req, res, next) {
-  res.render('signup', { title: 'Express' });
+router.get('/join', function(req, res, next) {
+  res.render('join', { title: 'Express' });
 });
 
 router.get('/login', function(req, res, next) {
   res.render('login', { title: 'Express' });
+});
+
+router.get('/testController', function(req, res, next) {
+  res.render('testController', { title: 'Express' });
 });
 
 module.exports = router;
