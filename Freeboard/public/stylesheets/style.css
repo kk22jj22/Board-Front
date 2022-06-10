@@ -23,7 +23,7 @@ ul {
   list-style-type: none;
 }
 
-.nav-left-items > a, .nav-right-items > a {
+.nav-left-items > a, .nav-right-items > a, .post > a {
   text-decoration: none;
   color: black;
 }
@@ -45,45 +45,48 @@ ul {
 }
 
 .container {
+  padding: 30px;
   margin-left: 59.2px;
   margin-right: 59.2px;
 }
 
-.main-posts {
+.main-posts-list {
   display: flex;
   justify-content: space-between; 
   
   margin-bottom: 10px;
 }
 
-.main-hot-posts {
+.main-posts {
   width: 45vw;
   height: 60vh;
 
   border: 1px solid rgb(172, 172, 172);
+
+  font-weight: bold;
+  font-size: 17px;
+
   padding: 5px;
   box-sizing: border-box;
 }
 
-.main-new-posts {
-  width: 45vw;
-  height: 60vh;
-
-  border: 1px solid rgb(172, 172, 172);
-  padding: 5px;
-  box-sizing: border-box;
-}
 
 .main-notice {
   display: flex;
   justify-content: center;
 }
 
-.main-notice-posts {  
+.main-posts-notice {  
   width: 100%;
   height: 15vh;
 
   border: 1px solid rgb(172, 172, 172);
+
+  font-weight: bold;
+  font-size: 17px;
+
+  padding: 5px;
+  box-sizing: border-box;
 }
 
 .post-container {
@@ -143,11 +146,12 @@ th {
 #newpost-title {
   width: 50%;
   height: 3vh;
+
   line-height: 3vh;
   resize: none;
 }
 
-#newpost-contents {
+#newpost-contents, #postcontents-contents {
   width: 50%;
   height: 25vh;
   resize: none;
@@ -155,10 +159,6 @@ th {
   margin-top: 10px;
   margin-bottom: 10px;
 }
-
-/* #newpost-contents::-webkit-input-placeholder {
-  transform: translateY(-100px);
-} */
 
 .post-comments {
   margin-top: 5px;
@@ -174,6 +174,29 @@ th {
 .join-input {
   width: 250px;
   height: 20px;
+  
   margin-right: 5px;
   margin-bottom: 10px;
+}
+
+.postcontents-comment-display {
+  display: flex;
+  margin-bottom: 10px;
+
+  align-items: center;
+}
+
+.postcontents-comment-detail {
+  width: 40%;
+  padding: 5px;
+
+  margin-right: 10px;
+  resize: none;
+}
+
+.postcontents-username {
+  width: 10%;
+
+  font-size: 16px;
+  font-weight: bold;
 }

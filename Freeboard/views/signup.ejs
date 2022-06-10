@@ -8,18 +8,19 @@
 </head>
 <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
 <body>
+    <script type="module" src="/javascripts/views/signup.js"></script>
     <%-include ('nav.ejs')%>
     <div class="container">
-        <h1>Join</h1>
+        <h1>Sign up</h1>
         <div>
             NAME
             <div>
-                <input class="join-input" id="username-input" type="text" placeholder="한글 6자 이내"> 
+                <input class="join-input" id="username-input" type="text" placeholder="이름"> 
                 <span id="username-msg"></span>               
             </div>
             NICKNAME
             <div>
-                <input class="join-input" id="nickname-input" type="text" placeholder="한글, 영 대/소문자 포함 6글자 이내">
+                <input class="join-input" id="nickname-input" type="text" placeholder="닉네임">
                 <button class="blue-button" id="nickname-check">Check</button>
                 <span id="nickname-msg"></span>
             </div>
@@ -31,7 +32,7 @@
             </div>
             PASSWORD
             <div>
-                <input class="join-input" id="password-input" type="text" placeholder="숫자와 영문을 포함한 8~12자 이내">
+                <input class="join-input" id="password-input" type="text" placeholder="비밀번호">
                 <span id="password-msg"></span>
             </div>
             <div>
@@ -40,5 +41,4 @@
         </div>
     </div>
 </body>
-<script type="module" src="/javascripts/main.js"></script>
 </html>
