@@ -1,12 +1,12 @@
 import { SignInRequestModel } from "../model/request/auth.js";
-import RequestUser from "../model/API/api.user.js"
+import { RequestUser } from "../model/API/api.user.js"
 
 export default class UserController{
     async signIn(email, password){
 
         const signInModel = new SignInRequestModel(email, password)
 
-        const result = await new RequestUser().signin(signInModel)
+        const result = await new RequestUser().signinApi(signInModel)
 
         console.log("signIn \n", result);
 

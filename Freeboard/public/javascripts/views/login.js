@@ -14,14 +14,13 @@ window.onload = () => {
     else{
         getById('signInBtn').addEventListener('click', onClickLogin)
     }
-    
+
     setPage()
     setBold()
 }
 
 async function onClickLogin(){
     const isLogin = await new UserController().signIn(email.value, password.value)
-
     if(isLogin){
         alert('로그인이 완료되었습니다!')
 
@@ -47,5 +46,8 @@ async function onClickLogin(){
     }
     else {
         alert('로그인 정보를 확인해 주세요!')
+        
+        email.value = "";
+        password.value = "";
     }
 }

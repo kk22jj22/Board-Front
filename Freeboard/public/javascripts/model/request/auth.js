@@ -1,3 +1,11 @@
+class emailCheckRequestModel {
+    email
+
+    constructor(email) {
+        this.email = email;
+    }
+}
+
 class SignUp {
     email
     password
@@ -24,5 +32,6 @@ class SignInRequestModel{
 
 export{
     SignUp,
-    SignInRequestModel
+    SignInRequestModel,
+    emailCheckRequestModel
 }

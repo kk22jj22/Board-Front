@@ -1,23 +1,8 @@
-import { isLogin, setBold, toLocation } from "../utils/utils.js";
+import checkEmailController from "../controllers/checkEmail.controller.js";
+import { getById, isLogin, setBold, toLocation } from "../utils/utils.js";
 import { setPage } from "./main.js";
 
-
-// input
-const idinput = document.getElementById('id-input');
-const pwinput = document.getElementById('password-input');
-const nicknameinput = document.getElementById('nickname-input');
-const nameinput = document.getElementById('username-input');
-
-// button
-const idcheck = document.getElementById('id-check');
-const nicknamecheck = document.getElementById('nickname-check');
-const joinsubmit = document.getElementById('join-submit');
-
-// msg
-const idmsg = document.getElementById('id-msg');
-
 window.onload = () => {
-
     if(isLogin()){
         alert('비정상적인 접근입니다.')
         toLocation("/index")
@@ -25,23 +10,36 @@ window.onload = () => {
     else{
         setPage()
         setBold()
-        getById('signInBtn').addEventListener('click', onClickLogin)
+        getById('emailCheckBtn').addEventListener("click", emailCheck)
     }
 }
 
-function emailYnCheck() {
-    var regEmail = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-    var id = idinput.value;
+async function emailCheck() {
+    let regEmail = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i
 
-    if(id === "") {
-        idmsg.textContent = '❗id를 입력해주세요';
+    const email = getById('emailInput')
+    const emailMsg = getById('emailMsg')
+    const emailCheck = await new checkEmailController().checkEmail(email.value);
+
+    if(email.value === "") {
+        emailMsg.textContent = '❗id를 입력해주세요';
+        emailMsg.style.color = 'red';
     } else {
-        if(regEmail.test(id) === false) {
-            idmsg.textContent = '❗입력한 ID를 다시 확인해주세요'
-            idinput.focus();
+        if(regEmail.test(email.value) === false) {
+            emailMsg.textContent = '❗입력한 ID를 다시 확인해주세요'
+            emailMsg.style.color = 'red';
+            email.focus();
         }
-        if(regEmail.test(id) === true) {
-            idmsg.textContent = '✔ Success';
+        else if(regEmail.test(email.value) === true && emailCheck === true) {
+            emailMsg.textContent = '✔ Success';
+            emailMsg.style.color = 'green';
+        }
+        else if(emailCheck === false) {
+            emailMsg.textContent = '❗이미 가입된 이메일입니다'
+            emailMsg.style.color = 'red';
         }
     }
 }
+
+// 닉네임 중복체크 (중복체크 안했으면 팅궈줘야 함)
+// submit

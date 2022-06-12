@@ -120,7 +120,7 @@ th {
   background-color: rgb(242, 237, 237);
 }
 
-.blue-button {
+.blueButton {
   width: 60px;
   height: 25px;
 
@@ -132,7 +132,7 @@ th {
   cursor: pointer;
 }
 
-.blue-button > a {
+.blueButton > a {
   text-decoration: none;
   color: white;
 }
@@ -173,14 +173,14 @@ th {
   margin-top: 5px;
 }
 
-.login-input {
+.loginInput {
   width: 200px;
   height: 20px;
   margin-right: 5px;
   margin-bottom: 10px;
 }
 
-.join-input {
+.joinInput {
   width: 250px;
   height: 20px;
   
