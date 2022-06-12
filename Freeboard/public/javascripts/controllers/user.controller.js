@@ -12,6 +12,12 @@ export default class UserController{
 
         //성공
         if(result.responseCode === 200){
+
+            sessionStorage.setItem("userId", result.userInfo.user_id)
+            sessionStorage.setItem("userEmail", result.userInfo.email)
+            sessionStorage.setItem("userName", result.userInfo.name)
+            sessionStorage.setItem("userNickName", result.userInfo.nick_name)
+
             return true
         }
         else{

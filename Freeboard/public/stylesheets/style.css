@@ -37,6 +37,15 @@ ul {
   cursor: pointer;
 }
 
+#welcome {
+  cursor: default;
+  font-size: 16px;
+}
+
+#welcomeNickname {
+  font-weight: bold;
+}
+
 #main-logo {
   margin-left: 20px;
   
