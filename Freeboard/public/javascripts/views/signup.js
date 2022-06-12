@@ -1,4 +1,5 @@
-import { setBold } from "../utils/utils.js";
+import { isLogin, setBold, toLocation } from "../utils/utils.js";
+import { setPage } from "./main.js";
 
 
 // input
@@ -16,8 +17,16 @@ const joinsubmit = document.getElementById('join-submit');
 const idmsg = document.getElementById('id-msg');
 
 window.onload = () => {
-    setBold();
-    idcheck.addEventListener("click", emailYnCheck);
+
+    if(isLogin()){
+        alert('비정상적인 접근입니다.')
+        toLocation("/index")
+    }
+    else{
+        setPage()
+        setBold()
+        getById('signInBtn').addEventListener('click', onClickLogin)
+    }
 }
 
 function emailYnCheck() {

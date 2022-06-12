@@ -34,3 +34,7 @@ function setPage(){
     }
 
 }
+
+export {
+    setPage
+}
