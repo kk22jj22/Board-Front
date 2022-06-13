@@ -1,5 +1,5 @@
 import UserController from "../controllers/user.controller.js"
-import { addEventById, getById, isLogin, setBold, toLocation } from "../utils/utils.js"
+import { getById, isLogin, setBold, toLocation } from "../utils/utils.js"
 import { setPage } from "./main.js"
 
 const email = getById('email')

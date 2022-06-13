@@ -18,10 +18,6 @@ function getById(id){
     return document.getElementById(id)
 }
 
-function addEventById(id, event, callback){
-    getById(id).addEventListener(event, ()=>{callback})
-}
-
 function isLogin(){
     return (sessionStorage.getItem("userId") != null)
 }
@@ -33,8 +29,8 @@ function toLocation(url){
 export{
     setBold,
     getById,
-    addEventById,
 
-    isLogin,
-    toLocation
+    toLocation,
+
+    isLogin
 }

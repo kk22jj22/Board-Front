@@ -5,10 +5,9 @@ export default class UserController{
     async signIn(email, password){
 
         const signInModel = new SignInRequestModel(email, password)
-
         const result = await new RequestUser().signinApi(signInModel)
 
-        console.log("signIn \n", result);
+        console.log("로그인 성공", result);
 
         //성공
         if(result.responseCode === 200){
@@ -16,7 +15,7 @@ export default class UserController{
             sessionStorage.setItem("userId", result.userInfo.user_id)
             sessionStorage.setItem("userEmail", result.userInfo.email)
             sessionStorage.setItem("userName", result.userInfo.name)
-            sessionStorage.setItem("userNickName", result.userInfo.nick_name)
+            sessionStorage.setItem("userNickName", result.userInfo.nickName)
 
             return true
         }
