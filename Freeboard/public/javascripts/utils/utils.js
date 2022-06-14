@@ -26,11 +26,19 @@ function toLocation(url){
     window.location = url
 }
 
+function setTextColor(id, color) {
+    return document.getElementById(id).style.color = color;
+}
+
+function setText(id, text) {
+    return document.getElementById(id).textContent = text;
+}
+
 export{
     setBold,
-    getById,
-
+    setTextColor,
+    setText,
     toLocation,
-
+    getById,
     isLogin
 }
