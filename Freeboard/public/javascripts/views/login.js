@@ -24,7 +24,7 @@ async function onClickLogin(){
     if(isLogin){
         alert('로그인이 완료되었습니다!')
 
-        window.location = "/index"
+        window.location = '/index'
 
         /*
             1. 화면을 이동해준다.

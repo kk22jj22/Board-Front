@@ -1,6 +1,6 @@
 
-import { RequestEmail, RequestNickname } from "../model/API/api.signup.js";
-import { emailCheckRequestModel, nicknameCheckRequestModel } from "../model/request/auth.js"
+import { RequestEmail, RequestNickname, RequestSignup } from "../model/API/api.signup.js";
+import { emailCheckRequestModel, nicknameCheckRequestModel, signUpRequestModel } from "../model/request/auth.js"
 
 class checkEmailController {
     async checkEmail(email) {
@@ -30,7 +30,23 @@ class checkNicknameController {
     }
 }
 
+class signupCheckController {
+    async signupCheck(name, nickName, email, password) {
+        const signupCheckModel = new signUpRequestModel(name, nickName, email, password)
+        const result = await new RequestSignup().checkSignupApi(signupCheckModel)
+
+        console.log(result);
+
+        if(result.responseCode === 200) {
+            return true
+        } else {
+            return false
+        }                
+    }
+}
+
 export {
     checkEmailController,
-    checkNicknameController
+    checkNicknameController,
+    signupCheckController
 }

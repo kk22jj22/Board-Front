@@ -8,7 +8,12 @@ class RequestNickname {
     async checkNicknameApi(body) { return await sendRequest('/users/checknickname', 'post', body) }
 }
 
+class RequestSignup {
+    async checkSignupApi(body) { return await sendRequest('/users/signup', 'post', body) }
+}
+
 export {
     RequestEmail,
-    RequestNickname
+    RequestNickname,
+    RequestSignup
 }

@@ -14,17 +14,17 @@ class nicknameCheckRequestModel {
     }
 }
 
-class SignUpRequestModel {
-    email
-    password
+class signUpRequestModel {
     name
     nickName
+    email
+    password
 
-    constructor(email, password, name, nickName) {
-        this.email = email;
-        this.password = password;
+    constructor(name, nickName, email, password) {
         this.name = name;
         this.nickName = nickName;
+        this.email = email;
+        this.password = password;
     }
 }
 
@@ -41,7 +41,7 @@ class SignInRequestModel{
 export{    
     SignInRequestModel,
 
-    SignUpRequestModel,
+    signUpRequestModel,
     emailCheckRequestModel,
     nicknameCheckRequestModel
 }
