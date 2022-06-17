@@ -7,13 +7,9 @@ window.onload = () => {
 }
 
 function setPage(){
-
-    console.log(isLogin());
-
     //로그인
     if(isLogin()){
         const nickName = sessionStorage.getItem('userNickName')
-        console.log(nickName);
         getById('navRight').innerHTML = 
         `<li class="nav-right-items" id="welcome"> <span id="welcomeNickname">${nickName}</span>님 반가워요🤗</li> 
         <li class="nav-right-items" id="logOut">Logout</li>` //백틱 -> "" '' 동일한데, 엔터를 쳐도 되는 거야 ${} -> js값을 사용 가능
