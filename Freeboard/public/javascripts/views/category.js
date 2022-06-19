@@ -1,4 +1,4 @@
-import { getById, getCurrentCategory, isLogin, setBold } from '../utils/utils.js'
+import { getById, getCurrentCategory, isLogin, setBold, toLocation } from '../utils/utils.js'
 import { setPage } from './main.js'
 
 window.onload = () => {
@@ -9,14 +9,16 @@ window.onload = () => {
 }
 
 function newPost() {
+
+
     if(!isLogin()) {
         alert('로그인 상태에서 게시물 등록이 가능합니다.')
-        window.location = '/login'
+         toLocation('/login')
     } else {
         if(location.search === '?cateid=1') {
-            window.location = '/newpost?cateid=1'
+            toLocation('/newpost?cateid=1')
         } else if(location.search === '?cateid=2') {
-            window.location = '/newpost?cateid=2'
+            toLocation('/newpost?cateid=2')
         }
     }
 }
