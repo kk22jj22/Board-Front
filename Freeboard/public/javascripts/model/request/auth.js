@@ -38,10 +38,28 @@ class SignInRequestModel{
     }
 }
 
+class postRegisterRequestModel{
+    title
+    content
+    userId
+    category
+
+
+    constructor(title, content, userId, category) {
+        this.title = title
+        this.content = content
+        this.userId = userId
+        this.category = category
+    }
+
+}
+
 export{    
     SignInRequestModel,
 
     signUpRequestModel,
     emailCheckRequestModel,
-    nicknameCheckRequestModel
+    nicknameCheckRequestModel,
+
+    postRegisterRequestModel
 }

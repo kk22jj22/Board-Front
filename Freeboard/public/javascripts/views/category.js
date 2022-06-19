@@ -1,4 +1,4 @@
-import { getById, isLogin, setBold } from '../utils/utils.js'
+import { getById, getCurrentCategory, isLogin, setBold } from '../utils/utils.js'
 import { setPage } from './main.js'
 
 window.onload = () => {
@@ -22,14 +22,11 @@ function newPost() {
 }
 
 function cateTitleSet() {
-    if(location.search === '?cateid=1') {
-        getById('cateTitle').textContent = 'Category1'
-    } else if(location.search === '?cateid=2') {
-        getById('cateTitle').textContent = 'Category2'
-    } else if(location.search === '?cateid=3') {
-        getById('cateTitle').textContent = 'Notice'       
-        if(location.search === '?cateid=3') {
-            getById('newPostBtn').style.display = 'none'
-        }
+    let currentCategory = getCurrentCategory()
+    getById('cateTitle').textContent = currentCategory
+
+    if(currentCategory === 'category3') {
+        getById('cateTitle').textContent = 'Notice'
+        getById('newPostBtn').style.display = 'none'
     }
 }

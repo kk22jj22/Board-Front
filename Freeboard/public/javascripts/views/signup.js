@@ -108,7 +108,7 @@ async function signupCheck() {
         alert('입력한 정보를 다시 확인해주세요')
         setText('nicknameMsg', '❗NICKNAME 중복체크를 해주세요') 
         setTextColor('nicknameMsg', 'red')
-        password.focus()
+        nickname.focus()
 
     } else if(emailCheckisYn === false && nicknameCheckisYn === false) {
         alert('입력한 정보를 다시 확인해주세요')       

@@ -34,11 +34,37 @@ function setText(id, text) {
     return document.getElementById(id).textContent = text;
 }
 
+function getCurrentCategory() {
+    let urlParams = document.location.href.split("=").reverse()[0]
+    let category = '';
+
+    switch(urlParams) {
+        case '1': {
+            category = 'category1'
+            break;
+        }
+        case '2': {
+            category = 'category2'
+            break;
+        }
+        case '3': {
+            category = 'category3'
+            break;
+        }
+        default: {
+            break;
+        }     
+    }
+
+    return category;
+}
+
 export{
     setBold,
     setTextColor,
     setText,
     toLocation,
     getById,
+    getCurrentCategory,
     isLogin
 }

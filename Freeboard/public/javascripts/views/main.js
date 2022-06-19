@@ -1,4 +1,4 @@
-import { setBold, getById, isLogin } from "../utils/utils.js"
+import { setBold, getById, isLogin, toLocation } from "../utils/utils.js"
 
 window.onload = () => {
 
@@ -15,11 +15,10 @@ function setPage(){
         <li class="nav-right-items" id="logOut">Logout</li>` //백틱 -> "" '' 동일한데, 엔터를 쳐도 되는 거야 ${} -> js값을 사용 가능
 
         getById('logOut').addEventListener('click', ()=>{
-
             alert('로그아웃 되었습니다.')
+            toLocation('/index')
 
             sessionStorage.clear()
-            window.location.reload()
         })        
     }
     //비로그인

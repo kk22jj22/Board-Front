@@ -152,7 +152,7 @@ th {
   margin-left: 59.2px;
 }
 
-#newpost-title {
+#newpostTitle {
   width: 50%;
   height: 3vh;
 
@@ -160,7 +160,7 @@ th {
   resize: none;
 }
 
-#newpost-contents, #postcontents-contents {
+#newpostContents, #postcontentsDetail {
   width: 50%;
   height: 25vh;
   resize: none;
@@ -169,7 +169,7 @@ th {
   margin-bottom: 10px;
 }
 
-.post-comments {
+.postComments {
   margin-top: 5px;
 }
 
@@ -192,14 +192,14 @@ th {
   margin-top: -3px;
 }
 
-.postcontents-comment-display {
+.postcontentsCommentDisplay {
   display: flex;
   margin-bottom: 10px;
 
   align-items: center;
 }
 
-.postcontents-comment-detail {
+.postcontentsCommentDetail {
   width: 40%;
   padding: 5px;
 
@@ -207,7 +207,7 @@ th {
   resize: none;
 }
 
-.postcontents-username {
+.postcontentsUsername {
   width: 10%;
 
   font-size: 16px;
