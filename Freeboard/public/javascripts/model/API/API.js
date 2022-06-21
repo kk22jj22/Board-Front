@@ -6,16 +6,29 @@ export default function sendRequest(url, method, body){
 
         const myInit = {method: method, body: JSON.stringify(body), headers: myHeaders};
 
-        console.log("requestBody \n",body);
+        if(method === 'post') {
+            console.log("requestBody \n",body);
 
-        url = baseUrl + url
+            url = baseUrl + url
+    
+            fetch(url, myInit)
+            .then(response => {
+                resolve(response.json())
+            }).catch(error => {
+                resolve(false)
+                console.error(error)
+            });
+        }else if(method === 'get') {
+            url = baseUrl + url
 
-        fetch(url, myInit)
-        .then(response => {
-            resolve(response.json())
-        }).catch(error => {
-            resolve(false)
-            console.error(error);
-        });
+            fetch(url)
+            .then(response => {
+                resolve(response.json())
+            }).catch(error => {
+                resolve(false)
+                console.error(error)
+            })
+        }
+
     })
 }

@@ -54,6 +54,18 @@ class postRegisterRequestModel{
 
 }
 
+class getPostRequestModel {
+    pageNo
+    numsOfPages
+    category
+
+    constructor(pageNo, numsOfPages, category) {
+        this.pageNo = pageNo
+        this.numsOfPages = numsOfPages
+        this.category = category
+    }
+}
+
 export{    
     SignInRequestModel,
 
@@ -61,5 +73,6 @@ export{
     emailCheckRequestModel,
     nicknameCheckRequestModel,
 
-    postRegisterRequestModel
+    postRegisterRequestModel,
+    getPostRequestModel
 }

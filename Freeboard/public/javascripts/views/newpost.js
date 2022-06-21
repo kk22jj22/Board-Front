@@ -24,7 +24,6 @@ async function newpostRegister() {
 
     const newpostRegister = await new postRegisterController().postRegister(title.value, content.value, userId, category)
 
-    console.log(category)
     if(newpostRegister) {
         alert('게시물 등록 성공')
         
