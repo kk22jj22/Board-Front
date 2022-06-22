@@ -31,7 +31,6 @@ function cateTitleSet() {
 
     if(currentCategory === 'category3') {
         getById('cateTitle').textContent = 'Notice'
-        getById('newPostBtn').style.display = 'none'
     }
 }
 
@@ -41,8 +40,41 @@ async function getPostLists() {
     let category = getCurrentCategory()
 
     const getPostLists = await new getPostController().getPost(pageNo, numsOfPages, category)
+    const trlength = getPostLists.list.length
+    const tdlength = Object.keys(getPostLists.list[0]).length
+      
+    for(let i=0; i<trlength; i++) {
+        const body = getById('post-list-body')
+        const tr = document.createElement('tr')
 
-    console.log(getPostLists.list[0])
-    console.log(getPostLists.list[0].title)
+        let tdBoardId = document.createElement('td')
+        tdBoardId.textContent = getPostLists.list[i].boardId
+
+        let tdTitle = document.createElement('td')
+        tdTitle.textContent = getPostLists.list[i].title 
+
+        let tdCommentCount = document.createElement('td')
+        tdCommentCount.textContent = getPostLists.list[i].commentCount 
+        
+        let tdViews = document.createElement('td')
+        tdViews.textContent = getPostLists.list[i].views
+
+        let tdDate = document.createElement('td')
+        tdDate.textContent = getPostLists.list[i].date
+
+        let tdNickName = document.createElement('td')
+        tdNickName.textContent = getPostLists.list[i].nickName
+
+        tr.appendChild(tdBoardId)
+        tr.appendChild(tdTitle)
+        tr.appendChild(tdCommentCount)
+        tr.appendChild(tdViews)
+        tr.appendChild(tdDate)
+        tr.appendChild(tdNickName)
+
+        body.appendChild(tr)
+    }
+
+
     
 }

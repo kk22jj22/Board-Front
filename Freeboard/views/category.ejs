@@ -13,21 +13,21 @@
     <h1 id="cateTitle"></h1>
     <div class="post-container">
       <!--컬럼 : NO, 제목, 코멘트 수, 작성자, 작성일자, 조회수. cateid를 통해 cate1/2를 불러온다. 별도 페이지 생성 X-->
-      <table class="post-list">
+      <table class="post-list-table" id="post-list-table">
         <thead>
-          <tr class="post-list-column">
+          <tr class="post-list-column" id="post-list-column">
             <th scope="col">No</th>
             <th scope="col">제목</th>
             <th scope="col">코멘트수</th>
-            <th scope="col">작성자</th>
-            <th scope="col">작성일자</th>
             <th scope="col">조회수</th>
+            <th scope="col">작성일자</th>
+            <th scope="col">작성자</th>
           </tr>
         </thead>
-        <tbody>
-          <tr class="post-contents" id="post-contents">
-            <td colspan="6" class="post"><a href="/postcontents">등록된 게시물이 없습니다.</a></td>
-          </tr>  
+        <tbody id="post-list-body">
+          <!-- <tr class="post-contents" id="post-contents">
+            <td colspan="6" id="post-none"><a href="/postcontents"></a></td>
+          </tr>   -->
         </tbody>
       </table>
     </div>
