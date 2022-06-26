@@ -51,7 +51,7 @@ async function getPostLists() {
     const trlength = getPostLists.boardList.length
     // const tdlength = Object.keys(getPostLists.list[0]).length
 
-    // 추가 작업 필요 : boardNo 수정, 페이지네이션
+    // 추가 작업 필요 : 페이지네이션, 컬럼 별 width
     for(let i=0; i<trlength; i++) {
         if(getPostLists.boardList[i].category === category) {
             const tr = document.createElement('tr')
@@ -60,7 +60,6 @@ async function getPostLists() {
             cntarr.push(boardNoCnt)
 
             let tdBoardNo = document.createElement('td')
-            // tdBoardNo.textContent = boardNoCnt
 
             let tdTitle = document.createElement('td')
             tdTitle.textContent = getPostLists.boardList[i].title 
@@ -73,10 +72,8 @@ async function getPostLists() {
     
             let date = (JSON.stringify(getPostLists.boardList[i].date).replace(/\"/gi, "")).substring(0, 10)
             let tdDate = document.createElement('td')
-            tdDate.textContent = date
-            
+            tdDate.textContent = date           
 
-    
             let tdNickName = document.createElement('td')
             tdNickName.textContent = getPostLists.boardList[i].nickName
     
