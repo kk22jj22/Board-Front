@@ -10,6 +10,7 @@ window.onload = () => {
     setPage()
     setBold()
 
+    // 게시물 제목 클릭 시 게시물 상세로 이동 추가
 }
 
 function newPost() {
@@ -37,47 +38,47 @@ function cateTitleSet() {
 }
 
 async function getPostLists() {
+    const table = getById('post-list-table')
+    const body = getById('post-list-body')
+
     let pageNo = 1
     let numsOfPages = 20
     let category = getCurrentCategory()
-    let BoardNoCnt = 1
+    let boardNoCnt = 0
+    let cntarr = []
 
     const getPostLists = await new getPostController().getPost(pageNo, numsOfPages, category)
-    const trlength = getPostLists.list.length
+    const trlength = getPostLists.boardList.length
     // const tdlength = Object.keys(getPostLists.list[0]).length
-    
-    // 추가 작업 필요 : boardNo 수정, 페이지네이션, 작성일자 > 시간 자르기, 상세 이동
-    for(let i=0; i<trlength; i++) {
-        if(getPostLists.list[i].category === category) {
-            const body = getById('post-list-body')
-            const tr = document.createElement('tr')
-    
-            // BoardNoCnt = BoardNoCnt+1
-            // if(BoardNoCnt>=2) {
-            //     for(let j=BoardNoCnt; j>1; j--) {
 
-            //     }               
-            // }
+    // 추가 작업 필요 : boardNo 수정, 페이지네이션
+    for(let i=0; i<trlength; i++) {
+        if(getPostLists.boardList[i].category === category) {
+            const tr = document.createElement('tr')
+
+            boardNoCnt = boardNoCnt+1
+            cntarr.push(boardNoCnt)
 
             let tdBoardNo = document.createElement('td')
-            tdBoardNo.textContent = BoardNoCnt
+            // tdBoardNo.textContent = boardNoCnt
 
-            BoardNoCnt = BoardNoCnt+1
-    
             let tdTitle = document.createElement('td')
-            tdTitle.textContent = getPostLists.list[i].title 
+            tdTitle.textContent = getPostLists.boardList[i].title 
     
             let tdCommentCount = document.createElement('td')
-            tdCommentCount.textContent = getPostLists.list[i].commentCount 
+            tdCommentCount.textContent = getPostLists.boardList[i].commentCount 
             
             let tdViews = document.createElement('td')
-            tdViews.textContent = getPostLists.list[i].views
+            tdViews.textContent = getPostLists.boardList[i].views
     
+            let date = (JSON.stringify(getPostLists.boardList[i].date).replace(/\"/gi, "")).substring(0, 10)
             let tdDate = document.createElement('td')
-            tdDate.textContent = getPostLists.list[i].date
+            tdDate.textContent = date
+            
+
     
             let tdNickName = document.createElement('td')
-            tdNickName.textContent = getPostLists.list[i].nickName
+            tdNickName.textContent = getPostLists.boardList[i].nickName
     
             tr.appendChild(tdBoardNo)
             tr.appendChild(tdTitle)
@@ -88,4 +89,15 @@ async function getPostLists() {
             body.appendChild(tr)
         }
     }
+
+    let rows = document.getElementById('post-list-body').getElementsByTagName('tr');
+    console.log(rows.length);
+    const reverse = cntarr.reverse()
+
+    for(let i=0; i<rows.length; i++) {
+        let cells = rows[i].getElementsByTagName('td')
+
+        rows[i].cells[0].textContent = reverse[i]
+    }
 }
+

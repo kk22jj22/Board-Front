@@ -8,11 +8,6 @@ class getPostController {
 
         console.log(result)
         return result
-        // if(result.responseCode === 200) {
-        //     return true
-        // } else {
-        //     return false
-        // }   
     }
 }
 

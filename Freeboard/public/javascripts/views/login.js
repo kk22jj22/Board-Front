@@ -6,7 +6,6 @@ const email = getById('email')
 const password = getById('password')
 
 window.onload = () => {
-
     if(isLogin()){
         alert('비정상적인 접근입니다.')
         toLocation("/index")
@@ -34,6 +33,7 @@ async function onClickLogin(){
         }else {
             window.location = '/index'
         }
+        
         /*
             1. 화면을 이동해준다.
             2. 로그인이 되었는지 체크를 해야되 -> 이 세션스토리지로 가능하다.
