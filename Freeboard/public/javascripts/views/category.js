@@ -19,7 +19,7 @@ function newPost() {
 
     if(!isLogin()) {
         alert('로그인 상태에서 게시물 등록이 가능합니다.')
-         toLocation('/login')
+        toLocation('/login')
     } else {
         if(location.search === '?cateid=1') {
             categoryId = 1
@@ -28,8 +28,8 @@ function newPost() {
         } else if(location.search === '?cateid=3') {
             categoryId = 3
         }
+        toLocation('/newpost?cateid='+categoryId)
     }
-    toLocation('/newpost?cateid='+categoryId)
 }
 
 function cateTitleSet() {
@@ -53,7 +53,7 @@ async function getPostLists() {
 
     const getPostLists = await new getPostController().getPost(pageNo, numsOfPages, category)
     const trlength = getPostLists.boardList.length
-    const boardId = getPostLists.boardList.boardId
+    const boardId = getPostLists.boardList[0].boardId
     // const tdlength = Object.keys(getPostLists.list[0]).length
 
     // 추가 작업 필요 : 페이지네이션, 컬럼 별 width
@@ -102,10 +102,11 @@ async function getPostLists() {
         rows[i].cells[0].textContent = reverse[i]
     }
 
-    getById('postTitle').addEventListener('click', goToDetail())
+    getById('postTitle').addEventListener('click', goToDetail(boardId))
+    console.log(boardId)
 }
 
-function goToDetail(){
+function goToDetail(boardId){
     let cateId = getCateId()
-    toLocation('/category?cateid='+cateId+'/postcontents?boardId='+boardId)
+    // toLocation('/category?cateid='+cateId+'/postcontents?boardId='+boardId)
 }

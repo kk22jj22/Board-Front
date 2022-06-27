@@ -11,6 +11,7 @@ router.get('/index', function(req, res, next) {
 });
 
 router.get('/category', function(req, res, next) {
+  let { cateid } = req.query
   res.render('category', { title: 'Express' });
 });
 
@@ -27,6 +28,7 @@ router.get('/login', function(req, res, next) {
 });
 
 router.get('/postcontents', function(req, res, next) {
+  let { boardId } = req.query
   res.render('postcontents', { title: 'Express' });
 });
 
