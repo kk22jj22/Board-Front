@@ -57,8 +57,12 @@ async function getPostLists() {
     // const tdlength = Object.keys(getPostLists.list[0]).length
 
     // 추가 작업 필요 : 페이지네이션, 컬럼 별 width
+    // 현재 이슈 사항 : 
+    // 1. 포스트타이틀 클릭 시 이벤트 작동되어야 하는데, 페이지 호출 시 작동되어버림
+    // 2. 클릭한 타이틀의 boardId를 어떻게 지정해서 넘겨줄 수 있을까..?
     for(let i=0; i<trlength; i++) {
         if(getPostLists.boardList[i].category === category) {
+            
             const tr = document.createElement('tr')
 
             boardNoCnt = boardNoCnt+1
@@ -82,6 +86,7 @@ async function getPostLists() {
 
             let tdNickName = document.createElement('td')
             tdNickName.textContent = getPostLists.boardList[i].nickName
+
     
             tr.appendChild(tdBoardNo)
             tr.appendChild(tdTitle)
@@ -108,5 +113,7 @@ async function getPostLists() {
 
 function goToDetail(boardId){
     let cateId = getCateId()
-    // toLocation('/category?cateid='+cateId+'/postcontents?boardId='+boardId)
+    
+    console.log('호출됨')
+    toLocation('/postcontents?cateid='+cateId+'&boardId='+boardId)
 }
