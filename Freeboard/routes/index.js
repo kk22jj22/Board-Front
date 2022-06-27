@@ -26,12 +26,9 @@ router.get('/login', function(req, res, next) {
   res.render('login', { title: 'Express' });
 });
 
-router.get('/testController', function(req, res, next) {
-  res.render('testController', { title: 'Express' });
-});
-
 router.get('/postcontents', function(req, res, next) {
   res.render('postcontents', { title: 'Express' });
 });
 
+router.get('/')
 module.exports = router;

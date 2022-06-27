@@ -1,5 +1,5 @@
 import { getPostController } from '../controllers/category.controller.js'
-import { getById, getCurrentCategory, isLogin, setBold, toLocation } from '../utils/utils.js'
+import { getById, getCateId, getCurrentCategory, isLogin, setBold, toLocation } from '../utils/utils.js'
 import { setPage } from './main.js'
 
 window.onload = () => {
@@ -11,21 +11,25 @@ window.onload = () => {
     setBold()
 
     // 게시물 제목 클릭 시 게시물 상세로 이동 추가
+
 }
 
 function newPost() {
+    let categoryId = ''
+
     if(!isLogin()) {
         alert('로그인 상태에서 게시물 등록이 가능합니다.')
          toLocation('/login')
     } else {
         if(location.search === '?cateid=1') {
-            toLocation('/newpost?cateid=1')
+            categoryId = 1
         } else if(location.search === '?cateid=2') {
-            toLocation('/newpost?cateid=2')
+            categoryId = 2
         } else if(location.search === '?cateid=3') {
-            toLocation('/newpost?cateid=3')
+            categoryId = 3
         }
     }
+    toLocation('/newpost?cateid='+categoryId)
 }
 
 function cateTitleSet() {
@@ -45,10 +49,11 @@ async function getPostLists() {
     let numsOfPages = 20
     let category = getCurrentCategory()
     let boardNoCnt = 0
-    let cntarr = []
+    let cntArr = []
 
     const getPostLists = await new getPostController().getPost(pageNo, numsOfPages, category)
     const trlength = getPostLists.boardList.length
+    const boardId = getPostLists.boardList.boardId
     // const tdlength = Object.keys(getPostLists.list[0]).length
 
     // 추가 작업 필요 : 페이지네이션, 컬럼 별 width
@@ -57,11 +62,12 @@ async function getPostLists() {
             const tr = document.createElement('tr')
 
             boardNoCnt = boardNoCnt+1
-            cntarr.push(boardNoCnt)
+            cntArr.push(boardNoCnt)
 
             let tdBoardNo = document.createElement('td')
 
             let tdTitle = document.createElement('td')
+            tdTitle.setAttribute('id', 'postTitle')
             tdTitle.textContent = getPostLists.boardList[i].title 
     
             let tdCommentCount = document.createElement('td')
@@ -88,13 +94,18 @@ async function getPostLists() {
     }
 
     let rows = document.getElementById('post-list-body').getElementsByTagName('tr');
-    console.log(rows.length);
-    const reverse = cntarr.reverse()
+    const reverse = cntArr.reverse()
 
     for(let i=0; i<rows.length; i++) {
         let cells = rows[i].getElementsByTagName('td')
 
         rows[i].cells[0].textContent = reverse[i]
     }
+
+    getById('postTitle').addEventListener('click', goToDetail())
 }
 
+function goToDetail(){
+    let cateId = getCateId()
+    toLocation('/category?cateid='+cateId+'/postcontents?boardId='+boardId)
+}

@@ -41,22 +41,46 @@ function getCurrentCategory() {
     switch(urlParams) {
         case '1': {
             category = 'category1'
-            break;
+            break
         }
         case '2': {
             category = 'category2'
-            break;
+            break
         }
         case '3': {
             category = 'category3'
-            break;
+            break
         }
         default: {
-            break;
+            break
         }     
     }
 
-    return category;
+    return category
+}
+
+function getCateId() {
+    let urlParams = document.location.href.split("=").reverse()[0]
+    let categoryId = '';
+
+    switch(urlParams) {
+        case '1': {
+            categoryId = '1'
+            break
+        }
+        case '2': {
+            categoryId = '2'
+            break
+        }
+        case '3': {
+            categoryId = '3'
+            break
+        }
+        default: {
+            break
+        }     
+    }
+    return categoryId
 }
 
 export{
@@ -66,5 +90,6 @@ export{
     toLocation,
     getById,
     getCurrentCategory,
+    getCateId,
     isLogin
 }
