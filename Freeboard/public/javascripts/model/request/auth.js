@@ -38,10 +38,61 @@ class SignInRequestModel{
     }
 }
 
+<<<<<<< Updated upstream
+=======
+class postRegisterRequestModel{
+    title
+    content
+    userId
+    category
+
+
+    constructor(title, content, userId, category) {
+        this.title = title
+        this.content = content
+        this.userId = userId
+        this.category = category
+    }
+
+}
+
+class getPostRequestModel {
+    pageNo
+    numsOfPages
+    category
+
+    constructor(pageNo, numsOfPages, category) {
+        this.pageNo = pageNo
+        this.numsOfPages = numsOfPages
+        this.category = category
+    }
+}
+
+class getDetailsRequestModel {
+    boardId
+    numOfPage
+    pageNo
+
+    constructor(boardId, numOfPage, pageNo) {
+        this.boardId = boardId
+        this.numOfPage = numOfPage
+        this.pageNo = pageNo
+    }
+}
+
+>>>>>>> Stashed changes
 export{    
     SignInRequestModel,
 
     signUpRequestModel,
     emailCheckRequestModel,
+<<<<<<< Updated upstream
     nicknameCheckRequestModel
+=======
+    nicknameCheckRequestModel,
+
+    postRegisterRequestModel,
+    getPostRequestModel,
+    getDetailsRequestModel
+>>>>>>> Stashed changes
 }
