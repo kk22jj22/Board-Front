@@ -66,6 +66,19 @@ class getPostRequestModel {
     }
 }
 
+class getDetailsRequestModel {
+    boardId
+    numOfPage
+    pageNo
+
+    constructor(boardId, numOfPage, pageNo) {
+        this.boardId = boardId
+        this.numOfPage = numOfPage
+        this.pageNo = pageNo
+    }
+
+}
+
 export{    
     SignInRequestModel,
 
@@ -74,5 +87,6 @@ export{
     nicknameCheckRequestModel,
 
     postRegisterRequestModel,
-    getPostRequestModel
+    getPostRequestModel,
+    getDetailsRequestModel
 }

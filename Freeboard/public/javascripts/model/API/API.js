@@ -7,7 +7,7 @@ export default function sendRequest(url, method, body){
         const myInit = {method: method, body: JSON.stringify(body), headers: myHeaders};
 
         if(method === 'post') {
-            console.log("requestBody \n",body);
+            console.log("requestBody \n", body);
 
             url = baseUrl + url
     
@@ -20,6 +20,7 @@ export default function sendRequest(url, method, body){
             });
         }else if(method === 'get') {
             url = baseUrl + url
+            console.log('requestBody \n', body)
 
             fetch(url)
             .then(response => {

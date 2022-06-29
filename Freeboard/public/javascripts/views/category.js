@@ -9,9 +9,6 @@ window.onload = () => {
     getPostLists()
     setPage()
     setBold()
-
-    // 게시물 제목 클릭 시 게시물 상세로 이동 추가
-
 }
 
 function newPost() {
@@ -48,18 +45,17 @@ async function getPostLists() {
     let pageNo = 1
     let numsOfPages = 20
     let category = getCurrentCategory()
+    let cateId = getCateId()
     let boardNoCnt = 0
     let cntArr = []
 
     const getPostLists = await new getPostController().getPost(pageNo, numsOfPages, category)
     const trlength = getPostLists.boardList.length
     const boardId = getPostLists.boardList[0].boardId
+
     // const tdlength = Object.keys(getPostLists.list[0]).length
 
     // 추가 작업 필요 : 페이지네이션, 컬럼 별 width
-    // 현재 이슈 사항 : 
-    // 1. 포스트타이틀 클릭 시 이벤트 작동되어야 하는데, 페이지 호출 시 작동되어버림
-    // 2. 클릭한 타이틀의 boardId를 어떻게 지정해서 넘겨줄 수 있을까..?
     for(let i=0; i<trlength; i++) {
         if(getPostLists.boardList[i].category === category) {
             
@@ -68,12 +64,18 @@ async function getPostLists() {
             boardNoCnt = boardNoCnt+1
             cntArr.push(boardNoCnt)
 
-            let tdBoardNo = document.createElement('td')
+            let tdBoardId = document.createElement('td')
+            tdBoardId = getPostLists.boardList[i].boardId
 
+            let tdBoardNo = document.createElement('td')
+            
             let tdTitle = document.createElement('td')
             tdTitle.setAttribute('id', 'postTitle')
-            tdTitle.textContent = getPostLists.boardList[i].title 
-    
+
+            let tdTitleA = document.createElement('a')
+            tdTitleA.setAttribute('href', `/postcontents?cateid=`+cateId+`&boardid=`+tdBoardId)
+            let tdTitleAText = document.createTextNode(getPostLists.boardList[i].title)
+   
             let tdCommentCount = document.createElement('td')
             tdCommentCount.textContent = getPostLists.boardList[i].commentCount 
             
@@ -87,9 +89,12 @@ async function getPostLists() {
             let tdNickName = document.createElement('td')
             tdNickName.textContent = getPostLists.boardList[i].nickName
 
+            console.log(tdBoardId)
     
             tr.appendChild(tdBoardNo)
             tr.appendChild(tdTitle)
+            tdTitle.appendChild(tdTitleA)
+            tdTitleA.appendChild(tdTitleAText)
             tr.appendChild(tdCommentCount)
             tr.appendChild(tdViews)
             tr.appendChild(tdDate)
@@ -106,14 +111,4 @@ async function getPostLists() {
 
         rows[i].cells[0].textContent = reverse[i]
     }
-
-    getById('postTitle').addEventListener('click', goToDetail(boardId))
-    console.log(boardId)
-}
-
-function goToDetail(boardId){
-    let cateId = getCateId()
-    
-    console.log('호출됨')
-    toLocation('/postcontents?cateid='+cateId+'&boardId='+boardId)
 }

@@ -30,5 +30,6 @@ router.get('/postcontents', function(req, res, next) {
   res.render('postcontents', { title: 'Express' });
 });
 
+
 router.get('/')
 module.exports = router;
