@@ -73,7 +73,7 @@ async function getPostLists() {
             tdTitle.setAttribute('id', 'postTitle')
 
             let tdTitleA = document.createElement('a')
-            tdTitleA.setAttribute('href', `/postcontents?cateid=`+cateId+`&boardid=`+tdBoardId)
+            tdTitleA.setAttribute('href', `/postcontents?boardId=`+tdBoardId)
             let tdTitleAText = document.createTextNode(getPostLists.boardList[i].title)
    
             let tdCommentCount = document.createElement('td')

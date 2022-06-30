@@ -7,7 +7,7 @@ export default function sendRequest(url, method, body){
         const myInit = {method: method, body: JSON.stringify(body), headers: myHeaders};
 
         if(method === 'post') {
-            console.log("requestBody \n", body);
+            // console.log("requestBody \n", body);
 
             url = baseUrl + url
     
@@ -19,8 +19,8 @@ export default function sendRequest(url, method, body){
                 console.error(error)
             });
         }else if(method === 'get') {
-            url = baseUrl + url
-            console.log('requestBody \n', body)
+            url = baseUrl + url + getQueryString(body)
+            // console.log('requestBody \n', body)
 
             fetch(url)
             .then(response => {
@@ -32,4 +32,15 @@ export default function sendRequest(url, method, body){
         }
 
     })
+}
+
+function getQueryString(body){
+    
+    let qs = `?`
+
+    for(const key in body){
+        if(qs !== `?`) qs += `&`
+        qs += `${key}=${body[key]}`
+    }
+    return qs
 }

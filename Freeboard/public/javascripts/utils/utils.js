@@ -36,6 +36,11 @@ function setText(id, text) {
 
 function getCurrentCategory() {
     let urlParams = document.location.href.split("=").reverse()[0]
+
+    const _ = new URLSearchParams(document.location.search);
+
+    console.log("test",_.get('cateid'));
+
     let category = '';
 
     switch(urlParams) {

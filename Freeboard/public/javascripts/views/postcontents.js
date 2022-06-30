@@ -6,13 +6,11 @@ import { setPage } from "./main.js"
 window.onload = () => {
 
     getCateId()
+    //setBold 안붙는거 수정 필요.
     setBold()
     setPage()
     getPostDetails()
 
-    // let urlStr = window.location.href
-    // const u1 = url.parse(urlStr)
-    // console.log(u1)
 }
 
 
