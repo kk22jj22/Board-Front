@@ -25,7 +25,6 @@ async function getPostDetails() {
     const contentsDetail = getById('postcontents-detail')
     contentsDetail.textContent = getPostDetails.content
 
-    // 작성자, 작성일 추가
     const contentsWriter = getById('post-writer')
     contentsWriter.textContent = '작성자 '+getPostDetails.nickName
 
@@ -33,9 +32,33 @@ async function getPostDetails() {
     let date = (JSON.stringify(getPostDetails.date).replace(/\"/gi, "")).substring(0, 10)
     contentsDate.textContent = '작성일자 '+date
 
+    // 코멘트 리스트 불러오기
+    // 코멘트 없을경우(commentList.length = 0이면, '작성된 코멘트가 없습니다', 있다면 코멘트 리스트 노출)  
+    if(getPostDetails.commentList.length === 0) {
+        getById('commentNone').style.display = 'flex';
+    } else {
+        const body = getById('comment-list-body')
 
-    // 코멘트 등록 시 내용이 undefined
-    // 코멘트 없을경우(commentList.length = 0이면, '작성된 코멘트가 없습니다', 있다면 코멘트 리스트 노출)
+        for(let i=0; i<getPostDetails.commentList.length; i++) {
+            const tr = document.createElement('tr')
+
+            let tdNickName = document.createElement('td')
+            tdNickName.textContent = getPostDetails.commentList[i].nickName
+    
+            let tdDetails = document.createElement('td')
+            tdDetails.textContent = getPostDetails.commentList[i].comment
+
+            let date = (JSON.stringify(getPostDetails.commentList[i].date).replace(/\"/gi, "")).substring(0, 10)
+            let tdDate = document.createElement('td')
+            tdDate.textContent = date
+
+            tr.appendChild(tdNickName)
+            tr.appendChild(tdDetails)
+            tr.appendChild(tdDate)
+            body.appendChild(tr)
+        }
+        
+    }
 
     // 조회수
     // 스크롤 스타일 필요

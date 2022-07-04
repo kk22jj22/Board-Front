@@ -90,7 +90,6 @@ ul {
   box-sizing: border-box;
 }
 
-
 .main-notice {
   display: flex;
   justify-content: center;
@@ -131,11 +130,11 @@ ul {
   border: 1px solid rgb(242, 237, 237);
 }
 
-th {   
+.post-list-table th {   
   background-color: rgb(242, 237, 237);
 }
 
-.blueButton {
+.blueButton, .puppleBtn {
   width: 60px;
   height: 25px;
 
