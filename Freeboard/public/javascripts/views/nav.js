@@ -2,10 +2,7 @@ const categoryList = [``, `1`, `2`, `3`]
 
 
 function onClickCategoryList(){
-
     const items = document.querySelectorAll('.nav-left-items')
-
-    // console.log(items);
 
     for(let i=0;i<items.length;i++){
         const item = items[i]
@@ -16,7 +13,7 @@ function onClickCategoryList(){
             })
         }else {
             item.addEventListener('click',()=>{
-                location.href = '/category?cateid=' + categoryList[i]
+                location.href = '/category?cateId=' + categoryList[i]
             })
         }
     }

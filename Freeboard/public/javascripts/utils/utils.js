@@ -1,9 +1,12 @@
 function setBold(){
-    if(location.search === "?cateid=1") {
+    let params = new URLSearchParams(location.search)
+    let paramsCateId = params.get('cateId')
+
+    if(paramsCateId === "1") {
         document.getElementById('cate1').style.fontWeight = 'bold';
-    }else if(location.search === "?cateid=2") {
+    }else if(paramsCateId === "2") {
         document.getElementById('cate2').style.fontWeight = 'bold';
-    }else if(location.search === "?cateid=3") {
+    }else if(paramsCateId === "3") {
         document.getElementById('cate3').style.fontWeight = 'bold';
     }
     
@@ -35,15 +38,12 @@ function setText(id, text) {
 }
 
 function getCurrentCategory() {
-    let urlParams = document.location.href.split("=").reverse()[0]
-
-    const _ = new URLSearchParams(document.location.search);
-
-    console.log("test",_.get('cateid'));
+    let params = new URLSearchParams(location.search)
+    let paramsCateId = params.get('cateId')
 
     let category = '';
 
-    switch(urlParams) {
+    switch(paramsCateId) {
         case '1': {
             category = 'category1'
             break
@@ -65,10 +65,12 @@ function getCurrentCategory() {
 }
 
 function getCateId() {
-    let urlParams = document.location.href.split("=").reverse()[0]
+    let params = new URLSearchParams(location.search)
+    let paramsCateId = params.get('cateId')
+
     let categoryId = '';
 
-    switch(urlParams) {
+    switch(paramsCateId) {
         case '1': {
             categoryId = '1'
             break
@@ -88,6 +90,13 @@ function getCateId() {
     return categoryId
 }
 
+function getBoardId() {
+    let params = new URLSearchParams(location.search)
+    let paramsBoardId = params.get('boardId')
+
+    return paramsBoardId
+}
+
 export{
     setBold,
     setTextColor,
@@ -96,5 +105,6 @@ export{
     getById,
     getCurrentCategory,
     getCateId,
+    getBoardId,
     isLogin
 }

@@ -129,7 +129,7 @@ th {
   width: 60px;
   height: 25px;
 
-  background-color: rgb(58, 143, 255);
+  background-color: #911C99;
   border-style: none;
 
   text-decoration: none;
@@ -165,7 +165,7 @@ th {
   resize: none;
 }
 
-#newpostContents, #postcontents-detail {
+#newpostContents {
   width: 50%;
   height: 25vh;
   resize: none;
@@ -174,15 +174,6 @@ th {
   margin-bottom: 10px;
 }
 
-.postComments {
-  margin-top: 5px;
-}
-
-#commentNone {
-  margin-top: 5px;
-  margin-bottom: 10px;
-  padding: 5px;
-}
 
 .loginInput {
   width: 200px;
@@ -203,25 +194,3 @@ th {
   margin-top: -3px;
 }
 
-.postcontents-comment-display {
-  display: flex;
-  margin-bottom: 10px;
-
-  align-items: center;
-}
-
-.postcontents-comment-detail {
-  width: 40%;
-  height: 15px;
-  padding: 5px;
-
-  margin-right: 10px;
-  resize: none;
-}
-
-.postcontentsUsername {
-  width: 10%;
-
-  font-size: 16px;
-  font-weight: bold;
-}

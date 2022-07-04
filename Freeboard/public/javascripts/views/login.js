@@ -1,5 +1,5 @@
 import UserController from "../controllers/user.controller.js"
-import { getById, getCurrentCategory, isLogin, setBold, toLocation } from "../utils/utils.js"
+import { getById, getCateId, getCurrentCategory, isLogin, setBold, toLocation } from "../utils/utils.js"
 import { setPage } from "./main.js"
 
 const email = getById('email')
@@ -21,19 +21,14 @@ async function onClickLogin(){
     const isLogin = await new UserController().signIn(email.value, password.value)
     if(isLogin){
         alert('로그인이 완료되었습니다!')
-        let ref = document.referrer
-        let refparm = ref.split("?").reverse()[0]
 
-        if(refparm === 'cateid=1') {
-            toLocation('/category?cateid=1')
-        }else if(refparm === 'cateid=2') {
-            toLocation('/category?cateid=2')
-        }else if(refparm === 'cateid=3') {
-            toLocation('/category?cateid=3')
-        }else {
+        let categoryId = getCateId()
+
+        if(categoryId === '') {
             window.location = '/index'
+        } else {
+            toLocation('category?cateId='+categoryId)
         }
-        
         /*
             1. 화면을 이동해준다.
             2. 로그인이 되었는지 체크를 해야되 -> 이 세션스토리지로 가능하다.

@@ -12,30 +12,19 @@ window.onload = () => {
 }
 
 function newPost() {
-    let categoryId = ''
+    let categoryId = getCateId()
 
     if(!isLogin()) {
         alert('로그인 상태에서 게시물 등록이 가능합니다.')
-        toLocation('/login')
+        toLocation('/login?cateId='+categoryId)
     } else {
-        if(location.search === '?cateid=1') {
-            categoryId = 1
-        } else if(location.search === '?cateid=2') {
-            categoryId = 2
-        } else if(location.search === '?cateid=3') {
-            categoryId = 3
-        }
-        toLocation('/newpost?cateid='+categoryId)
+        toLocation('/newpost?cateId='+categoryId)
     }
 }
 
 function cateTitleSet() {
     let currentCategory = getCurrentCategory()
     getById('cateTitle').textContent = currentCategory
-
-    if(currentCategory === 'category3') {
-        getById('cateTitle').textContent = 'Notice'
-    }
 }
 
 async function getPostLists() {
@@ -73,7 +62,7 @@ async function getPostLists() {
             tdTitle.setAttribute('id', 'postTitle')
 
             let tdTitleA = document.createElement('a')
-            tdTitleA.setAttribute('href', `/postcontents?boardId=`+tdBoardId)
+            tdTitleA.setAttribute('href', `/postcontents?boardId=`+tdBoardId+`&cateId=`+cateId)
             let tdTitleAText = document.createTextNode(getPostLists.boardList[i].title)
    
             let tdCommentCount = document.createElement('td')
