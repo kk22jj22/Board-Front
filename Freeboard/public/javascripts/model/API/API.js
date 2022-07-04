@@ -9,8 +9,9 @@ export default function sendRequest(url, method, body){
         if(method === 'post') {
             // console.log("requestBody \n", body);
 
-            url = baseUrl + url
+            url = baseUrl + url + getQueryString(body)
     
+            console.log(body)
             fetch(url, myInit)
             .then(response => {
                 resolve(response.json())
@@ -41,8 +42,8 @@ function getQueryString(body){
     for(const key in body){
         if(qs !== `?`) qs += `&`
         qs += `${key}=${body[key]}`
-        // console.log('qs = '+qs)
-        // console.log('key = '+key)
+        console.log('qs = '+qs)
+        console.log('key = '+key)
     }
     return qs
 }

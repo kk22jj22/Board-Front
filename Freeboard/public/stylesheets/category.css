@@ -6,3 +6,7 @@
     text-decoration: none;
     color: black;
 }
+
+#postTitle:hover {
+    font-weight: bold;
+}

@@ -8,13 +8,19 @@
 #postcontents-detail {
     width: 40%;
     height: 25vh;
-    resize: none;
-  
+
     margin-top: 20px;
     margin-bottom: 10px;
 
     padding: 3px;
+
     white-space: pre;
+    resize: none;
+    border: none;
+}
+
+#postcontents-detail:focus {
+    outline: none;
 }
 
 .postComments {

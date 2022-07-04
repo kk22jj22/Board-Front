@@ -15,10 +15,12 @@
         <div class="postcontents">
             <div>
                 <div class="postcontents-title-area">
-                    <h1 id="postcontents-title"></h1>
+                    <h2 id="postcontents-title"></h2>
+                    <div id="post-writer"></div>
+                    <div id="post-date"></div>
                 </div>
                 <div>
-                    <div id="postcontents-detail"></textarea>
+                    <textarea id="postcontents-detail"></textarea>
                 </div>
             </div>
             <div>
@@ -26,12 +28,12 @@
                     <h2>✍ comments</h2>
                     <div class="postcontents-comment-display">
                         <div class="postcontents-comment-detail">내용</div>
-                        <div class="postcontentsUsername" id="username">작성자</div>
+                        <div class="comment-usernickname" id="usernickname">작성자</div>
                     </div>
                     <div id="commentNone">작성된 코멘트가 없습니다.</div>
                     <div class="postcontents-comment-display">
-                        <textarea class="postcontents-comment-detail" placeholder="내용을 입력하세요"></textarea>
-                        <button class="blueButton">New</button>
+                        <textarea class="postcontents-comment-detail" id="newCommentInput" placeholder="내용을 입력하세요"></textarea>
+                        <button class="blueButton" id="newCommentBtn">New</button>
                     </div>
                 </div>
             </div>

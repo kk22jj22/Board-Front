@@ -32,7 +32,7 @@ async function getPostLists() {
     const body = getById('post-list-body')
 
     let pageNo = 1
-    let numsOfPages = 20
+    let numsOfPages = 30
     let category = getCurrentCategory()
     let cateId = getCateId()
     let boardNoCnt = 0
@@ -77,8 +77,6 @@ async function getPostLists() {
 
             let tdNickName = document.createElement('td')
             tdNickName.textContent = getPostLists.boardList[i].nickName
-
-            console.log(tdBoardId)
     
             tr.appendChild(tdBoardNo)
             tr.appendChild(tdTitle)

@@ -20,13 +20,23 @@ nav {
 ul {
   display: flex;
 
-  align-items: baseline;
+  align-items: center;
   list-style-type: none;
 }
 
 .nav-left-items > a, .nav-right-items > a, .post > a {
   text-decoration: none;
   color: black;
+}
+
+.nav-left-items img{
+  width: 130px;
+  height: 3vh;
+
+  position: relative;
+  bottom: -3px;
+  
+  margin-right: 5px;
 }
 
 .nav-right {

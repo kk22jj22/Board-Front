@@ -79,6 +79,18 @@ class getDetailsRequestModel {
 
 }
 
+class registerCommentRequestModel {
+    boardId
+    userId
+    comment
+
+    constructor(boardId, userId, comment) {
+        this.boardId = boardId
+        this.userId = userId
+        this.comment = comment
+    }
+}
+
 export{    
     SignInRequestModel,
 
@@ -88,5 +100,6 @@ export{
 
     postRegisterRequestModel,
     getPostRequestModel,
-    getDetailsRequestModel
+    getDetailsRequestModel,
+    registerCommentRequestModel
 }
