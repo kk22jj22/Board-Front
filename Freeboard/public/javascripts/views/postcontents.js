@@ -79,5 +79,7 @@ async function newComments() {
         alert('코멘트 내용을 입력해주세요!')
     } else {
         const registerNewComment = await new registerCommentController().registerComment(boardId, userId, comment)
+        alert('코멘트를 등록했습니다!')
+        history.go(0)
     }
 }
