@@ -44,13 +44,15 @@ async function getPostDetails() {
 
             let tdNickName = document.createElement('td')
             tdNickName.textContent = getPostDetails.commentList[i].nickName
-    
+            tdNickName.setAttribute('id', 'tdNickName')
+
             let tdDetails = document.createElement('td')
             tdDetails.textContent = getPostDetails.commentList[i].comment
 
             let date = (JSON.stringify(getPostDetails.commentList[i].date).replace(/\"/gi, "")).substring(0, 10)
             let tdDate = document.createElement('td')
             tdDate.textContent = date
+            tdDate.setAttribute('id', 'tdDate')
 
             tr.appendChild(tdNickName)
             tr.appendChild(tdDetails)
@@ -60,7 +62,6 @@ async function getPostDetails() {
         
     }
 
-    // 조회수
     // 스크롤 스타일 필요
 }
 
@@ -81,5 +82,11 @@ async function newComments() {
         const registerNewComment = await new registerCommentController().registerComment(boardId, userId, comment)
         alert('코멘트를 등록했습니다!')
         history.go(0)
+        // refreshComment()
+        // 코멘트 리스트를 새로 불러오려면 게시물 상세를 다시 불러와야되는데.. 그럼 게시물 view가 증가함.
     }
 }
+
+function refreshComment(){
+    $("#postcontents-comment-area").load(window.location.href +" #postcontents-comment-area");
+  }

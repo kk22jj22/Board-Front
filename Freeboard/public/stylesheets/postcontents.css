@@ -28,14 +28,20 @@
 
     width: 50%;
     margin-top: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 
-    font-size: 14px
+    font-size: 14px;
+
+    justify-content: center;
 }
 
-.postcontents-comment-display area {
+.postcontents-comment-display {
     width: 50%;
-    margin-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+#tdNickName, #tdDate {
+    text-align: center;
 }
 
 .postcontents-comment-usernickname {
@@ -58,14 +64,18 @@
 
 .postcontents-comment-input-display {
     display: flex;
+    width: 50%;
+
     align-items: center;
+    justify-content: center;
 }
 
 .postcontents-comment-input {
-    width: 45%;
+    width: 75%;
     height: 2rem;
 
-    margin-right: 10px;
+    margin-left: 10px;
+    margin-right: 15px;
 
     font-size: 14px;
 
