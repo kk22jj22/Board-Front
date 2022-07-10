@@ -8,9 +8,13 @@ window.onload = () => {
     setBold()
     setPage()
     getPostDetails()
+    getById('back-to-category').addEventListener('click', backToCategory)
     getById('newCommentBtn').addEventListener('click', newComments)
 }
 
+function backToCategory() {
+    location.href = document.referrer;
+}
 
 async function getPostDetails() {
     let boardId = getBoardId()

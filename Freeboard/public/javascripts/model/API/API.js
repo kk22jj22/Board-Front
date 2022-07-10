@@ -42,8 +42,8 @@ function getQueryString(body){
     for(const key in body){
         if(qs !== `?`) qs += `&`
         qs += `${key}=${body[key]}`
-        console.log('qs = '+qs)
-        console.log('key = '+key)
+        // console.log('qs = '+qs)
+        // console.log('key = '+key)
     }
     return qs
 }

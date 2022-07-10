@@ -31,8 +31,8 @@ async function getPostLists() {
     const table = getById('post-list-table')
     const body = getById('post-list-body')
 
-    let pageNo = 1
-    let numsOfPages = 30
+    let pageNo = 1 // 현재 페이지
+    let numsOfPages = 20 // 한 페이지 내 불러올 게시글 수
     let category = getCurrentCategory()
     let cateId = getCateId()
     let boardNoCnt = 0
@@ -41,6 +41,11 @@ async function getPostLists() {
     const getPostLists = await new getPostController().getPost(pageNo, numsOfPages, category)
     const trlength = getPostLists.boardList.length
     const boardId = getPostLists.boardList[0].boardId
+
+    let totalCount = getPostLists.totalCount
+    let perPage = 5 
+    let lastPage = getPostLists.lastPage 
+    let pageGroup = totalCount / perPage 
 
     // const tdlength = Object.keys(getPostLists.list[0]).length
 
@@ -98,4 +103,42 @@ async function getPostLists() {
 
         rows[i].cells[0].textContent = reverse[i]
     }
+
+    paging(pageNo,lastPage)
+}
+
+
+function paging(pageNo, lastPage, event) {
+    const cateId = getCateId()
+    const pageArea = getById('pagination-area')
+
+    // 이전버튼, 다음버튼 추가 필요
+    for(let i=1; i<=lastPage; i++) {
+
+        let page = document.createElement('a')
+        page.setAttribute('href', `/category?cateId=`+cateId+`&page=`+pageNo)
+        page.setAttribute('id', 'pagination')
+        page.textContent = i
+        page.addEventListener('click', getTarget)
+
+        pageArea.appendChild(page)
+        
+        // 클릭한 타겟의 숫자 받아오고 그 값을 pageNo로 변경...?
+    }
+    // 다음버튼
+    if(lastPage > 5) {
+        let nextPageBtn = document.createElement('a')
+        nextPageBtn.setAttribute('id', 'nextPageBtn')
+        nextPageBtn.textContent = '>'
+
+        pageArea.appendChild(nextPageBtn)
+    }
+
+}
+
+function getTarget(event) {
+    let Target = event.target.textContent
+    let pageNo = Target
+
+    return pageNo
 }
