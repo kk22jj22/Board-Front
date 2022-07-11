@@ -31,7 +31,8 @@ async function getPostLists() {
     const table = getById('post-list-table')
     const body = getById('post-list-body')
 
-    let pageNo = 1 // 현재 페이지
+    let params = new URLSearchParams(location.search)
+    let pageNo = params.get('page')
     let numsOfPages = 20 // 한 페이지 내 불러올 게시글 수
     let category = getCurrentCategory()
     let cateId = getCateId()
@@ -103,7 +104,6 @@ async function getPostLists() {
 
         rows[i].cells[0].textContent = reverse[i]
     }
-
     paging(pageNo,lastPage)
 }
 
@@ -116,15 +116,13 @@ function paging(pageNo, lastPage, event) {
     for(let i=1; i<=lastPage; i++) {
 
         let page = document.createElement('a')
-        page.setAttribute('href', `/category?cateId=`+cateId+`&page=`+pageNo)
+        page.setAttribute('href', `/category?cateId=`+cateId+`&page=`+i)
         page.setAttribute('id', 'pagination')
         page.textContent = i
-        page.addEventListener('click', getTarget)
 
         pageArea.appendChild(page)
-        
-        // 클릭한 타겟의 숫자 받아오고 그 값을 pageNo로 변경...?
     }
+    
     // 다음버튼
     if(lastPage > 5) {
         let nextPageBtn = document.createElement('a')
@@ -134,11 +132,4 @@ function paging(pageNo, lastPage, event) {
         pageArea.appendChild(nextPageBtn)
     }
 
-}
-
-function getTarget(event) {
-    let Target = event.target.textContent
-    let pageNo = Target
-
-    return pageNo
 }

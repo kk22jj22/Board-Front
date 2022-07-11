@@ -13,7 +13,7 @@ function onClickCategoryList(){
             })
         }else {
             item.addEventListener('click',()=>{
-                location.href = '/category?cateId=' + categoryList[i]
+                location.href = '/category?cateId=' + categoryList[i] + '&page=1'
             })
         }
     }
