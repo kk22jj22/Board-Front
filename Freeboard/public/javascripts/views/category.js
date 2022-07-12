@@ -111,13 +111,16 @@ async function getPostLists() {
 function paging(pageNo, lastPage, event) {
     const cateId = getCateId()
     const pageArea = getById('pagination-area')
+    let params = new URLSearchParams(location.search)
+    let selectedPage = params.get('page')
 
     // 이전버튼, 다음버튼 추가 필요
     for(let i=1; i<=lastPage; i++) {
 
         let page = document.createElement('a')
         page.setAttribute('href', `/category?cateId=`+cateId+`&page=`+i)
-        page.setAttribute('id', 'pagination')
+        page.setAttribute('class', 'pagination')
+        page.setAttribute('id', 'pagination'+i)
         page.textContent = i
 
         pageArea.appendChild(page)
@@ -131,5 +134,12 @@ function paging(pageNo, lastPage, event) {
 
         pageArea.appendChild(nextPageBtn)
     }
+
+    // 선택된 페이징 활성화
+ 
+    // if (selectedPage === '1') {
+    //     getById('pagination1').style.background = '#911C99'
+    //     getById('pagination1').style.color = 'white'
+    // }
 
 }

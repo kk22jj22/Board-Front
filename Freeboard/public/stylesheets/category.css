@@ -16,7 +16,7 @@
     justify-content: center;
 }
 
-#pagination {
+.pagination {
     margin-left: 3px;
     padding: 7px;
     font-size: 12px;
