@@ -96,6 +96,7 @@ async function getPostLists() {
         }
     }
 
+    // 토탈렝스부터 1
     let rows = document.getElementById('post-list-body').getElementsByTagName('tr');
     const reverse = cntArr.reverse()
 
@@ -104,11 +105,13 @@ async function getPostLists() {
 
         rows[i].cells[0].textContent = reverse[i]
     }
-    paging(pageNo,lastPage)
+
+
+    paging(lastPage)
 }
 
 
-function paging(pageNo, lastPage, event) {
+function paging(lastPage) {
     const cateId = getCateId()
     const pageArea = getById('pagination-area')
     let params = new URLSearchParams(location.search)
@@ -127,7 +130,7 @@ function paging(pageNo, lastPage, event) {
     }
     
     // 다음버튼
-    if(lastPage > 5) {
+    if(lastPage % 5 === 0) {
         let nextPageBtn = document.createElement('a')
         nextPageBtn.setAttribute('id', 'nextPageBtn')
         nextPageBtn.textContent = '>'
@@ -135,11 +138,10 @@ function paging(pageNo, lastPage, event) {
         pageArea.appendChild(nextPageBtn)
     }
 
-    // 선택된 페이징 활성화
- 
-    // if (selectedPage === '1') {
-    //     getById('pagination1').style.background = '#911C99'
-    //     getById('pagination1').style.color = 'white'
-    // }
-
+    for(let i=1; i<=lastPage; i++) {
+        if(selectedPage == i) {
+            getById('pagination'+i).style.background = '#911C99'
+            getById('pagination'+i).style.color = 'white'
+        }
+    }
 }
