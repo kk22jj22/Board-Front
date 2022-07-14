@@ -1,9 +1,8 @@
 import { getPostController } from '../controllers/category.controller.js'
-import { getById, getCateId, getCurrentCategory, isLogin, setBold, toLocation } from '../utils/utils.js'
+import { getById, getCateId, getCurrentCategory, getCurrentCategory2, isLogin, setBold, toLocation } from '../utils/utils.js'
 import { setPage } from './main.js'
 
 window.onload = () => {
-
     cateTitleSet()
     getById('newPostBtn').addEventListener('click', newPost)
     getPostLists()
@@ -35,6 +34,7 @@ async function getPostLists() {
     let pageNo = params.get('page')
     let numsOfPages = 20 // 한 페이지 내 불러올 게시글 수
     let category = getCurrentCategory()
+    let category2 = getCurrentCategory2()
     let cateId = getCateId()
     let boardNoCnt = 0
     let cntArr = []
@@ -50,14 +50,11 @@ async function getPostLists() {
 
     // const tdlength = Object.keys(getPostLists.list[0]).length
 
-    // 추가 작업 필요 : 페이지네이션, 컬럼 별 width
+    // 추가 작업 필요 : 컬럼 별 width
     for(let i=0; i<trlength; i++) {
-        if(getPostLists.boardList[i].category === category) {
+        if(getPostLists.boardList[i].category === category || category2) {
             
             const tr = document.createElement('tr')
-
-            boardNoCnt = boardNoCnt+1
-            cntArr.push(boardNoCnt)
 
             let tdBoardId = document.createElement('td')
             tdBoardId = getPostLists.boardList[i].boardId
@@ -96,17 +93,24 @@ async function getPostLists() {
         }
     }
 
-    // 토탈렝스부터 1
     let rows = document.getElementById('post-list-body').getElementsByTagName('tr');
-    const reverse = cntArr.reverse()
+    let r = 0;
 
-    for(let i=0; i<rows.length; i++) {
-        let cells = rows[i].getElementsByTagName('td')
-
-        rows[i].cells[0].textContent = reverse[i]
+    for(let i=totalCount-((pageNo*numsOfPages)-numsOfPages); i>totalCount-(pageNo*numsOfPages); i--) {
+        if (i < 0) {
+            break
+        } else if(rows[r] === undefined) {
+            break
+        } else {
+            let cells = rows[r].getElementsByTagName('td')
+            rows[r].cells[0].textContent = i
+    
+            r = r+1;
+    
+            console.log(r)
+            console.log(rows[r])
+        }
     }
-
-
     paging(lastPage)
 }
 
@@ -130,7 +134,7 @@ function paging(lastPage) {
     }
     
     // 다음버튼
-    if(lastPage % 5 === 0) {
+    if((lastPage > 5) && (lastPage % 5) === 0) {
         let nextPageBtn = document.createElement('a')
         nextPageBtn.setAttribute('id', 'nextPageBtn')
         nextPageBtn.textContent = '>'

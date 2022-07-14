@@ -87,7 +87,7 @@ async function newComments() {
         alert('코멘트를 등록했습니다!')
         history.go(0)
         // refreshComment()
-        // 코멘트 리스트를 새로 불러오려면 게시물 상세를 다시 불러와야되는데.. 그럼 게시물 view가 증가함.
+        // 코멘트 리스트를 새로 불러오려면 게시물 상세를 다시 불러와야되는데.. 그럼 게시물 view가 증가함. >> API 작업 예정
     }
 }
 

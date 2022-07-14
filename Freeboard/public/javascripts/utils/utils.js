@@ -64,6 +64,32 @@ function getCurrentCategory() {
     return category
 }
 
+function getCurrentCategory2() {
+    let params = new URLSearchParams(location.search)
+    let paramsCateId = params.get('cateId')
+
+    let category = '';
+
+    switch(paramsCateId) {
+        case '1': {
+            category = 'Category1'
+            break
+        }
+        case '2': {
+            category = 'Category2'
+            break
+        }
+        case '3': {
+            category = 'Category3'
+            break
+        }
+        default: {
+            break
+        }     
+    }
+
+    return category
+}
 function getCateId() {
     let params = new URLSearchParams(location.search)
     let paramsCateId = params.get('cateId')
@@ -104,6 +130,7 @@ export{
     toLocation,
     getById,
     getCurrentCategory,
+    getCurrentCategory2,
     getCateId,
     getBoardId,
     isLogin
