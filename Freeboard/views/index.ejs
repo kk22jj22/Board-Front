@@ -10,13 +10,37 @@
 <body>
   <%-include ('nav.ejs')%>
   <div class="container">
-    <h1>Main</h1>
+    <h1></h1>
     <div class="main-posts-list">
-      <div class="main-posts" id="hot">🔥 인기 게시물</div>
-      <div class="main-posts" id="new">👀 최신 게시물</div>
-    </div>
-    <div class="main-notice">
-      <div class="main-posts-notice" id="notice">📢 notice</div>
+      <div class="main-posts" id="hotpost-lists-area">
+        🔥 인기 게시물
+        <table>
+          <thead>
+            <th scope="col">카테고리</th>
+            <th scope="col">제목</th>
+            <th scope="col">코멘트</th>
+            <th scope="col">조회수</th>
+            <th scope="col">작성일자</th>
+            <th scope="col">작성자</th> 
+          </thead>
+          <tbody id="hotpost-list-body">
+          </tbody>
+        </table>
+      </div>
+      <div class="main-posts" id="newpost-lists-area">
+        👀 최신 게시물
+        <table>
+          <thead>
+            <th scope="col">카테고리</th>
+            <th scope="col">제목</th>
+            <th scope="col">조회수</th>
+            <th scope="col">작성일자</th>
+            <th scope="col">작성자</th>
+          </thead>
+          <tbody id="newpost-list-body">
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </body>

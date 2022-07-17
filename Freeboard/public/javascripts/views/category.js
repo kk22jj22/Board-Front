@@ -27,7 +27,6 @@ function cateTitleSet() {
 }
 
 async function getPostLists() {
-    const table = getById('post-list-table')
     const body = getById('post-list-body')
 
     let params = new URLSearchParams(location.search)
@@ -56,8 +55,7 @@ async function getPostLists() {
             
             const tr = document.createElement('tr')
 
-            let tdBoardId = document.createElement('td')
-            tdBoardId = getPostLists.boardList[i].boardId
+            let tdBoardId = getPostLists.boardList[i].boardId
 
             let tdBoardNo = document.createElement('td')
             
@@ -106,9 +104,6 @@ async function getPostLists() {
             rows[r].cells[0].textContent = i
     
             r = r+1;
-    
-            console.log(r)
-            console.log(rows[r])
         }
     }
     paging(lastPage)
