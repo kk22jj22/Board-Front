@@ -27,7 +27,7 @@ async function onClickLogin(){
         if(categoryId === '') {
             window.location = '/index'
         } else {
-            toLocation('category?cateId='+categoryId)
+            toLocation('category?cateId='+categoryId+'&page=1')
         }
         /*
             1. 화면을 이동해준다.

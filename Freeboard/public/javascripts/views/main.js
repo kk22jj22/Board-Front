@@ -2,7 +2,6 @@ import { getPostController } from "../controllers/category.controller.js"
 import { setBold, getById, isLogin, toLocation } from "../utils/utils.js"
 
 window.onload = () => {
-
     setPage()
     setBold()
     setHotPosts()
@@ -150,6 +149,7 @@ async function setNewPosts() {
 
 
 }
+
 export {
     setPage
 }
