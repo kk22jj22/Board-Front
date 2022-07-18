@@ -5,7 +5,8 @@ window.onload = () => {
 
     setPage()
     setBold()
-    getAllPostLists()
+    setHotPosts()
+    setNewPosts()
 }
 
 function setPage(){
@@ -32,28 +33,76 @@ function setPage(){
 
 }
 
-async function getAllPostLists() {
+async function setHotPosts() {
 
     const hotbody = getById('hotpost-list-body')
+    let pageNo = 1
+    let numofPages = 999
+    let category = 'all'
+    let cateId = ''
+    let hotSort = 10
+    
+    const getAllPost2 = await new getPostController().getPost(pageNo, numofPages, category)
+
+    const allListSort = getAllPost2.boardList.sort(function(a,b) {
+        return b.views - a.views
+    })
+
+    for(let i=0; i<hotSort; i++) {
+        const tr = document.createElement('tr')
+
+        let tdBoardId = allListSort[i].boardId
+
+        let hotcategory = document.createElement('td')
+        let categoryName = allListSort[i].category
+        hotcategory.textContent = categoryName
+
+        if(categoryName === 'category1') {
+            cateId = 1
+        }else if(categoryName === 'category2') {
+            cateId = 2
+        }else if(categoryName === 'category3') {
+            cateId = 3
+        }
+
+        let hotTitle = document.createElement('td')
+        hotTitle.setAttribute('id', 'newListTitle')
+
+        let hotTitleA = document.createElement('a')
+        hotTitleA.setAttribute('href', `/postcontents?boardId=`+tdBoardId+`&cateId=`+cateId)
+        let hotTitleAText = document.createTextNode(allListSort[i].title+` (💭`+allListSort[i].commentCount+`)`)
+
+        let hotViews = document.createElement('td')
+        hotViews.textContent = allListSort[i].views
+
+        let date = (JSON.stringify(allListSort[i].date).replace(/\"/gi, "")).substring(0, 10)
+        let hotDate = document.createElement('td')
+        hotDate.textContent = date
+
+        let hotNickName = document.createElement('td')
+        hotNickName.textContent = allListSort[i].nickName
+        
+        tr.appendChild(hotcategory)
+        tr.appendChild(hotTitle)
+        hotTitle.appendChild(hotTitleA)
+        hotTitleA.appendChild(hotTitleAText)
+        tr.appendChild(hotViews)
+        tr.appendChild(hotDate)
+        tr.appendChild(hotNickName)
+        hotbody.appendChild(tr)
+    }
+}
+
+async function setNewPosts() {
     const newbody = getById('newpost-list-body')
 
     let pageNo = 1
     let numofPages = 999
     let category = 'all'
     let cateId = ''
-    let hotSort = 10
     let newSort = 10
     const getAllPost = await new getPostController().getPost(pageNo, numofPages, category)
 
-    let totalCount = getAllPost.totalCount
-
-    // 인기게시물
-    // 인기는 조회수, 조회수 같을 경우 코멘트 수 높은 순 정렬
-    // for(let i=0; i<hotSort; i++){
-    //     console.log(getAllPost.boardList[i].views)
-    // }
-
-    // 최신게시물
     for(let i=0; i<newSort; i++) {
         //게시물 타이틀+코멘트, 조회수, 작성일, 날짜, 작성자
         const tr = document.createElement('tr')
@@ -63,7 +112,6 @@ async function getAllPostLists() {
         let newcategory = document.createElement('td')
         let categoryName = getAllPost.boardList[i].category
         newcategory.textContent = categoryName
-        console.log(categoryName)
 
         if(categoryName === 'category1') {
             cateId = 1
@@ -99,7 +147,8 @@ async function getAllPostLists() {
         tr.appendChild(newNickName)
         newbody.appendChild(tr)
     }
-    
+
+
 }
 export {
     setPage
