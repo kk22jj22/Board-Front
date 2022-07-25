@@ -28,7 +28,7 @@ async function newpostRegister() {
     if(newpostRegister) {
         alert('게시물 등록 성공')
 
-        toLocation('/category?cateId='+categoryId)
+        toLocation('/category?cateId='+categoryId+'&page=1')
     } else {
         alert('제목, 내용을 입력해주세요!')
     }

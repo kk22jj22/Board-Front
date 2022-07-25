@@ -10,35 +10,38 @@
 <body>
   <%-include ('nav.ejs')%>
   <div class="container">
-    <h1></h1>
-    <div class="main-posts-list">
-      <div class="main-posts" id="hotpost-lists-area">
-        🔥 인기 게시물
-        <table>
-          <thead>
-            <th scope="col">카테고리</th>
-            <th scope="col">제목</th>
-            <th scope="col">조회수</th>
-            <th scope="col">작성일자</th>
-            <th scope="col">작성자</th> 
-          </thead>
-          <tbody id="hotpost-list-body">
-          </tbody>
-        </table>
-      </div>
-      <div class="main-posts" id="newpost-lists-area">
-        👀 최신 게시물
-        <table>
-          <thead>
-            <th scope="col">카테고리</th>
-            <th scope="col">제목</th>
-            <th scope="col">조회수</th>
-            <th scope="col">작성일자</th>
-            <th scope="col">작성자</th>
-          </thead>
-          <tbody id="newpost-list-body">
-          </tbody>
-        </table>
+    <div class="main-posts-align">
+      <div class="main-posts-area">
+        <div class="main-posts" id="hotpost-lists-area">
+          <span id="hotpost-title">🔥 인기 게시물</span>
+          <table class="main-table">
+            <thead>
+              <tr id="main-thead">
+                <th scope="col">카테고리</th>
+                <th scope="col">제목</th>
+                <th scope="col">조회수</th>
+                <th scope="col">작성일자</th>
+                <th scope="col">작성자</th> 
+              </tr>
+            </thead>
+            <tbody id="hotpost-list-body">
+            </tbody>
+          </table>
+        </div>
+        <div class="main-posts" id="newpost-lists-area">
+          <span id="newpost-title">👀 최신 게시물</span>
+          <table class="main-table">
+            <thead class="main-thead">
+              <th scope="col">카테고리</th>
+              <th scope="col">제목</th>
+              <th scope="col">조회수</th>
+              <th scope="col">작성일자</th>
+              <th scope="col">작성자</th>
+            </thead>
+            <tbody id="newpost-list-body">
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>

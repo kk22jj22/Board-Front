@@ -40,7 +40,12 @@ async function getPostLists() {
 
     const getPostLists = await new getPostController().getPost(pageNo, numsOfPages, category)
     const trlength = getPostLists.boardList.length
-    const boardId = getPostLists.boardList[0].boardId
+
+    if(trlength === 0) {
+        getById('post-list-body').textContent = 'none'
+    }
+
+    // const boardId = getPostLists.boardList[0].boardId
 
     let totalCount = getPostLists.totalCount
     let perPage = 5 
@@ -50,9 +55,9 @@ async function getPostLists() {
     // const tdlength = Object.keys(getPostLists.list[0]).length
 
     // 추가 작업 필요 : 컬럼 별 width
+
     for(let i=0; i<trlength; i++) {
-        if(getPostLists.boardList[i].category === category || category2) {
-            
+        if(getPostLists.boardList[i].category === category || category2) {    
             const tr = document.createElement('tr')
 
             let tdBoardId = getPostLists.boardList[i].boardId

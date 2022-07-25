@@ -39,7 +39,7 @@ async function setHotPosts() {
     let numofPages = 999
     let category = 'all'
     let cateId = ''
-    let hotSort = 10
+    let hotSort = 15
     
     const getAllPost2 = await new getPostController().getPost(pageNo, numofPages, category)
 
@@ -56,11 +56,11 @@ async function setHotPosts() {
         let categoryName = allListSort[i].category
         hotcategory.textContent = categoryName
 
-        if(categoryName === 'category1') {
+        if(categoryName === '일상') {
             cateId = 1
-        }else if(categoryName === 'category2') {
+        }else if(categoryName === '정보') {
             cateId = 2
-        }else if(categoryName === 'category3') {
+        }else if(categoryName === '유머') {
             cateId = 3
         }
 
@@ -99,7 +99,7 @@ async function setNewPosts() {
     let numofPages = 999
     let category = 'all'
     let cateId = ''
-    let newSort = 10
+    let newSort = 15
     const getAllPost = await new getPostController().getPost(pageNo, numofPages, category)
 
     for(let i=0; i<newSort; i++) {

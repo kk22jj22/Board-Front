@@ -66,25 +66,6 @@ ul {
 
 .container {
   padding: 30px;
-  margin-left: 59.2px;
-  margin-right: 59.2px;
-}
-
-.main-posts {
-  width: 80vw;
-  height: 40vh;
-
-  border: 1px solid rgb(172, 172, 172);
-
-  font-size: 17px;
-
-  padding: 5px;
-  box-sizing: border-box;
-}
-
-#newListTitle a{
-  text-decoration: none;
-  color: black;
 }
 
 .post-container {
@@ -94,23 +75,66 @@ ul {
   width: 100%;
 }
 
+.main-posts-align {
+  display: flex;
+  justify-content: center;
+
+  margin-top: 5rem;
+}
+
+.main-posts-area {
+  display: flex;
+ 
+}
+.main-posts { 
+
+  font-size: 16px;
+
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+table {
+  border-collapse: separate;
+  text-indent: initial;
+}
+
+.main-table {
+  margin-top: 10px;
+
+  border-top: 1px solid rgb(172, 172, 172);
+  border-bottom: 1px solid rgb(172, 172, 172);
+}
+
 .post-list-table {
-  width: 70%;
+  width: 50%;
 
   border-top: 1px solid rgb(242, 237, 237);
   border-collapse: collapse;
 
   text-align: center;
+
   margin-top: 59.2px;
   margin-left: 59.2px;
 }
 
-.post-list-table td {
-  border: 1px solid rgb(242, 237, 237);
+#hotpost-title, #newpost-title {
+  font-weight: bold;
+}
+
+#newListTitle a{
+  text-decoration: none;
+  color: black;
 }
 
 .post-list-table th {   
   background-color: rgb(242, 237, 237);
+}
+
+.post-list-table tr {
+  border-bottom: 1px solid rgb(242, 237, 237);
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .blueButton, .puppleBtn {
