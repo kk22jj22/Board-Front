@@ -39,7 +39,7 @@ async function setHotPosts() {
     let numofPages = 999
     let category = 'all'
     let cateId = ''
-    let hotSort = 15
+    let hotSort = 10
     
     const getAllPost2 = await new getPostController().getPost(pageNo, numofPages, category)
 
@@ -56,11 +56,11 @@ async function setHotPosts() {
         let categoryName = allListSort[i].category
         hotcategory.textContent = categoryName
 
-        if(categoryName === '일상') {
+        if(categoryName === 'category1') {
             cateId = 1
-        }else if(categoryName === '정보') {
+        }else if(categoryName === 'category2') {
             cateId = 2
-        }else if(categoryName === '유머') {
+        }else if(categoryName === 'category3') {
             cateId = 3
         }
 
@@ -99,12 +99,13 @@ async function setNewPosts() {
     let numofPages = 999
     let category = 'all'
     let cateId = ''
-    let newSort = 15
+    let newSort = 10
     const getAllPost = await new getPostController().getPost(pageNo, numofPages, category)
 
     for(let i=0; i<newSort; i++) {
         //게시물 타이틀+코멘트, 조회수, 작성일, 날짜, 작성자
         const tr = document.createElement('tr')
+        
 
         let tdBoardId = getAllPost.boardList[i].boardId
 
@@ -112,11 +113,11 @@ async function setNewPosts() {
         let categoryName = getAllPost.boardList[i].category
         newcategory.textContent = categoryName
 
-        if(categoryName === 'category1') {
+        if(categoryName === '일상') {
             cateId = 1
-        }else if(categoryName === 'category2') {
+        }else if(categoryName === '정보') {
             cateId = 2
-        }else if(categoryName === 'category3') {
+        }else if(categoryName === '유머') {
             cateId = 3
         }
 
@@ -144,7 +145,7 @@ async function setNewPosts() {
         tr.appendChild(newViews)
         tr.appendChild(newDate)
         tr.appendChild(newNickName)
-        newbody.appendChild(tr)
+        newbody.appendChild(tr)        
     }
 }
 

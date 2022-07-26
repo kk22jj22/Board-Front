@@ -1,3 +1,8 @@
+.post-container {
+    display: flex;
+}
+  
+
 #cateTitle {
     display: flex;
     justify-content: center;
@@ -5,6 +10,10 @@
     width: 57%;
 
     margin-top: 2rem;
+    margin-bottom: 1rem;
+
+    font-weight: bold;
+    font-size: 24px;
 }
 
 #postTitle {
@@ -33,14 +42,41 @@
 }
 
 .post-list-table {
+    display: table;
     width: 50%;
-  
-    border-top: 1px solid rgb(242, 237, 237);
+
+    border-top: 3px solid rgb(242, 237, 237);
+    border-bottom: 3px solid rgb(242, 237, 237);
+
     border-collapse: collapse;
   
     text-align: center;
   
     margin-left: 59.2px;
+}
+
+.post-list-table th {
+    border-collapse: collapse;
+}
+  
+.post-list-table tr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    font-size: 16px;
+    letter-spacing: -2px;
+}
+
+.category-area {
+    display: flex;
+    flex-direction: column;
+
+    position: relative;
+    top: 5rem;
+}
+
+#hotpost-list-body {
+    font-size: 20px;
 }
 
 #pagination-area {

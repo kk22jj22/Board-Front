@@ -104,21 +104,12 @@ table {
 
 #hotpost-title, #newpost-title {
   font-weight: bold;
+  font-size: 18px;
 }
 
 #newListTitle a{
   text-decoration: none;
   color: black;
-}
-
-.post-list-table th {   
-  background-color: rgb(242, 237, 237);
-}
-
-.post-list-table tr {
-  border-bottom: 1px solid rgb(242, 237, 237);
-  margin-top: 5px;
-  margin-bottom: 5px;
 }
 
 .blueButton, .puppleBtn {
@@ -149,8 +140,8 @@ table {
 
   width: 70%;
   
-  margin-top: 20px;
-  margin-left: 59.2px;
+  margin-top: 3rem;
+  margin-right: 14rem;
 }
 
 #newpostTitle {

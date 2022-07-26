@@ -10,38 +10,41 @@
 </head>
 <body>
     <%-include ('nav.ejs')%>
-
-    <div class="container">
-        <div class="postcontents">
+    <div class="container-postcontents">
+        <div class="postcontents-area">
             <div>
-                <div class="postcontents-title-area">
-                    <span id="back-to-category">< Back</span>
-                    <h2 id="postcontents-title"></h2>
-                    <div id="post-writer"></div>
-                    <div id="post-date"></div>
+                <div class="contents">
+                    <div>
+                        <div class="postcontents-title-area">
+                            <span id="back-to-category">< Back</span>
+                            <h2 id="postcontents-title"></h2>
+                            <div id="post-writer"></div>
+                            <div id="post-date"></div>
+                        </div>
+                        <div>
+                            <textarea id="postcontents-detail"></textarea>
+                        </div>
+                    </div>
                 </div>
                 <div>
-                    <textarea id="postcontents-detail"></textarea>
-                </div>
-            </div>
-            <div>
-                <div class="postcontents-comment-area" id="postcontents-comment-area">
-                    <h2>✍ comments</h2>
-                    <table class="postcontents-comment-display" id="comment-table">
-                        <thead>
-                            <tr class="postcontents-comment-column">
-                                <th scope="col" class="postcontents-comment-usernickname" id="usernickname">작성자</th>
-                                <th scope="col" class="postcontents-comment-detail">내용</th>
-                                <th scope="col" class="postcontents-comment-date">작성일자</th>
-                            </tr>
-                        </thead>
-                        <tbody id="comment-list-body"></tbody>
-                    </table>
-
-                    <div id="commentNone">💭 작성된 코멘트가 없습니다. 지금 작성해보세요!</div>
-                    <div class="postcontents-comment-input-display">
-                        <textarea class="postcontents-comment-input" id="newCommentInput" placeholder="내용을 입력하세요"></textarea>
-                        <button class="puppleBtn" id="newCommentBtn">Submit</button>
+                    <div class="postcontents-comment-area" id="postcontents-comment-area">
+                        <h2>✍ comments</h2>
+                        <table class="postcontents-comment-display" id="comment-table">
+                            <thead>
+                                <tr class="postcontents-comment-column">
+                                    <th scope="col" class="postcontents-comment-usernickname" id="usernickname">작성자</th>
+                                    <th scope="col" class="postcontents-comment-detail">내용</th>
+                                    <th scope="col" class="postcontents-comment-date">작성일자</th>
+                                </tr>
+                            </thead>
+                            <tbody id="comment-list-body"></tbody>
+                        </table>
+    
+                        <div id="commentNone">💭 작성된 코멘트가 없습니다. 지금 작성해보세요!</div>
+                        <div class="postcontents-comment-input-display">
+                            <textarea class="postcontents-comment-input" id="newCommentInput" placeholder="내용을 입력하세요"></textarea>
+                            <button class="puppleBtn" id="newCommentBtn">Submit</button>
+                        </div>
                     </div>
                 </div>
             </div>

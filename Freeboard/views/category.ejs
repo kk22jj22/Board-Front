@@ -11,32 +11,33 @@
 <body>
   <%-include ('nav.ejs')%>
   <div class="container">
-    <h1 id="cateTitle"></h1>
-    <div class="post-container">
-      <table class="post-list-table" id="post-list-table">
-        <thead>
-          <tr class="post-list-column" id="post-list-column">
-            <th scope="col">No</th>
-            <th scope="col">제목</th>
-            <!-- <th scope="col">코멘트수</th> -->
-            <th scope="col">조회수</th>
-            <th scope="col">작성일자</th>
-            <th scope="col">작성자</th>
-          </tr>
-        </thead>
-        <tbody id="post-list-body">
-          <tr>
-            <td colspan="6" id="post-list-body-none">.</tr>            
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="align">
-      <div class="button-align">
-        <button class="blueButton" id="newPostBtn">New</button>
+    <div class="category-area">
+      <span id="cateTitle"></span>
+      <div class="post-container">
+        <table class="post-list-table" id="post-list-table">
+          <thead>
+            <tr class="post-list-column" id="post-list-column">
+              <th scope="col">No</th>
+              <th scope="col">제목</th>
+              <th scope="col">조회수</th>
+              <th scope="col">작성일자</th>
+              <th scope="col">작성자</th>
+            </tr>
+          </thead>
+          <tbody id="post-list-body">
+            <tr>
+              <td colspan="6" id="post-list-body-none">.</tr>            
+            </tr>
+          </tbody>
+        </table>
       </div>
-    </div>
-    <div id="pagination-area">
+      <div class="align">
+        <div class="button-align">
+          <button class="puppleBtn" id="newPostBtn">New</button>
+        </div>
+      </div>
+      <div id="pagination-area">
+      </div>
     </div>
   </div>
 </body>

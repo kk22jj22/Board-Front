@@ -23,7 +23,7 @@ function newPost() {
 
 function cateTitleSet() {
     let currentCategory = getCurrentCategory()
-    getById('cateTitle').textContent = currentCategory
+    getById('cateTitle').textContent = '🤟'+currentCategory
 }
 
 async function getPostLists() {
