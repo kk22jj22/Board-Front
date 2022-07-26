@@ -146,8 +146,6 @@ async function setNewPosts() {
         tr.appendChild(newNickName)
         newbody.appendChild(tr)
     }
-
-
 }
 
 export {
