@@ -1,3 +1,12 @@
+#cateTitle {
+    display: flex;
+    justify-content: center;
+
+    width: 57%;
+
+    margin-top: 2rem;
+}
+
 #postTitle {
     cursor: pointer;
 }
@@ -9,6 +18,29 @@
 
 #postTitle:hover {
     font-weight: bold;
+}
+
+.post-container {
+    display: flex;
+    justify-content: center;
+  
+    width: 100%;
+  }
+  
+#post-list-body-none {
+    display: none;
+    text-align: center;
+}
+
+.post-list-table {
+    width: 50%;
+  
+    border-top: 1px solid rgb(242, 237, 237);
+    border-collapse: collapse;
+  
+    text-align: center;
+  
+    margin-left: 59.2px;
 }
 
 #pagination-area {

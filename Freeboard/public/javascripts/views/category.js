@@ -40,19 +40,26 @@ async function getPostLists() {
 
     const getPostLists = await new getPostController().getPost(pageNo, numsOfPages, category)
     const trlength = getPostLists.boardList.length
-    const boardId = getPostLists.boardList[0].boardId
 
     let totalCount = getPostLists.totalCount
     let perPage = 5 
     let lastPage = getPostLists.lastPage 
     let pageGroup = totalCount / perPage 
 
+
+    if(totalCount === 0) {
+        getById('post-list-body-none').style.display = 'block';
+        getById('post-list-body-none').innerHTML = '작성된 게시물이 없습니다'
+        console.log('없지롱')
+    }
+
+    // const boardId = getPostLists.boardList[0].boardId
     // const tdlength = Object.keys(getPostLists.list[0]).length
 
     // 추가 작업 필요 : 컬럼 별 width
+
     for(let i=0; i<trlength; i++) {
-        if(getPostLists.boardList[i].category === category || category2) {
-            
+        if(getPostLists.boardList[i].category === category || category2) {    
             const tr = document.createElement('tr')
 
             let tdBoardId = getPostLists.boardList[i].boardId
@@ -64,10 +71,10 @@ async function getPostLists() {
 
             let tdTitleA = document.createElement('a')
             tdTitleA.setAttribute('href', `/postcontents?boardId=`+tdBoardId+`&cateId=`+cateId)
-            let tdTitleAText = document.createTextNode(getPostLists.boardList[i].title)
+            let tdTitleAText = document.createTextNode(getPostLists.boardList[i].title + ' (💭' + getPostLists.boardList[i].commentCount+')')
    
-            let tdCommentCount = document.createElement('td')
-            tdCommentCount.textContent = getPostLists.boardList[i].commentCount 
+            // let tdCommentCount = document.createElement('td')
+            // tdCommentCount.textContent = getPostLists.boardList[i].commentCount 
             
             let tdViews = document.createElement('td')
             tdViews.textContent = getPostLists.boardList[i].views
@@ -83,7 +90,7 @@ async function getPostLists() {
             tr.appendChild(tdTitle)
             tdTitle.appendChild(tdTitleA)
             tdTitleA.appendChild(tdTitleAText)
-            tr.appendChild(tdCommentCount)
+            // tr.appendChild(tdCommentCount)
             tr.appendChild(tdViews)
             tr.appendChild(tdDate)
             tr.appendChild(tdNickName)   
@@ -101,7 +108,7 @@ async function getPostLists() {
             break
         } else {
             let cells = rows[r].getElementsByTagName('td')
-            rows[r].cells[0].textContent = i
+            rows[r].cells[0].textContent = i+1
     
             r = r+1;
         }

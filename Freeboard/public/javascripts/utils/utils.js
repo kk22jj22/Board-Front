@@ -45,15 +45,15 @@ function getCurrentCategory() {
 
     switch(paramsCateId) {
         case '1': {
-            category = 'category1'
+            category = '일상'
             break
         }
         case '2': {
-            category = 'category2'
+            category = '정보'
             break
         }
         case '3': {
-            category = 'category3'
+            category = '유머'
             break
         }
         default: {
