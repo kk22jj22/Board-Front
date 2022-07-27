@@ -53,14 +53,29 @@ async function setHotPosts() {
         let tdBoardId = allListSort[i].boardId
 
         let hotcategory = document.createElement('td')
-        let categoryName = allListSort[i].category
-        hotcategory.textContent = categoryName
+        let category = getAllPost2.boardList[i].category
 
-        if(categoryName === 'category1') {
+        if(category === 'category1') {
+            hotcategory.textContent = '일상'
+            hotcategory.style.color = 'orange'
+        } else if(category === '일상') {
+            hotcategory.textContent = '일상'
+            hotcategory.style.color = 'orange'
+        } else if(category === 'category2') {
+            hotcategory.textContent = '정보'
+            hotcategory.style.color = 'green'
+        } else if(category === 'category3') {
+            hotcategory.textContent = '유머'
+            hotcategory.style.color = 'rgba(225, 75, 75, 0.89)'
+        }
+
+        if(category === 'category1') {
             cateId = 1
-        }else if(categoryName === 'category2') {
+        } else if(category === '일상') {
+            cateId = 1            
+        } else if(category === 'category2') {
             cateId = 2
-        }else if(categoryName === 'category3') {
+        } else if(category === 'category3') {
             cateId = 3
         }
 
@@ -106,18 +121,30 @@ async function setNewPosts() {
         //게시물 타이틀+코멘트, 조회수, 작성일, 날짜, 작성자
         const tr = document.createElement('tr')
         
-
         let tdBoardId = getAllPost.boardList[i].boardId
 
         let newcategory = document.createElement('td')
-        let categoryName = getAllPost.boardList[i].category
-        newcategory.textContent = categoryName
+        let category = getAllPost.boardList[i].category
 
-        if(categoryName === '일상') {
+        if(category === 'category1') {
+            newcategory.textContent = '일상'
+            newcategory.style.color = 'orange'
+        } else if(category === '일상') {
+            newcategory.textContent = '일상'
+            newcategory.style.color = 'orange'            
+        } else if(category === 'category2') {
+            newcategory.textContent = '정보'
+            newcategory.style.color = 'green'
+        } else if(category === 'category3') {
+            newcategory.textContent = '유머'
+            newcategory.style.color = 'rgba(225, 75, 75, 0.89)'
+        }
+
+        if(category === 'category1') {
             cateId = 1
-        }else if(categoryName === '정보') {
+        }else if(category === 'category2') {
             cateId = 2
-        }else if(categoryName === '유머') {
+        }else if(category === 'category3') {
             cateId = 3
         }
 

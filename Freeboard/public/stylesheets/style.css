@@ -11,10 +11,14 @@ nav {
   justify-content: space-between;
 
   background: rgb(242, 237, 237);
+
   width: 100%;
   height: 10vh;
   
-  font-size: 1.2rem;
+  padding: 3.5rem;
+  box-sizing: border-box;
+
+  font-size: 1.3rem;
 }
 
 ul {
@@ -82,8 +86,8 @@ ul {
   display: flex;
  
 }
-.main-posts { 
 
+.main-posts { 
   font-size: 16px;
 
   padding: 15px;
@@ -113,12 +117,16 @@ table {
 }
 
 .blueButton, .puppleBtn {
-  width: 60px;
-  height: 25px;
+  width: 65px;
+  height: 30px;
 
   background-color: #911C99;
+  border-radius: 8px;
   border-style: none;
 
+  font-size: 16px;
+
+  margin-top: 1rem;
   text-decoration: none;
   color: white;
   cursor: pointer;
@@ -144,40 +152,9 @@ table {
   margin-right: 14rem;
 }
 
-#newpostTitle {
-  width: 50%;
-  height: 3vh;
-
-  line-height: 3vh;
-  resize: none;
-}
-
-#newpostContents {
-  width: 50%;
-  height: 25vh;
-  resize: none;
-
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-
 .loginInput {
   width: 200px;
   height: 20px;
   margin-right: 5px;
   margin-bottom: 10px;
 }
-
-.signupInput {
-  width: 250px;
-  height: 20px;
-  
-  margin-right: 5px;
-  margin-bottom: 10px;
-}
-
-#passwordConfirmInput {
-  margin-top: -3px;
-}
-

@@ -5,21 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New post</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/newpost.css">
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
 </head>
 <body>
     <%-include ('nav.ejs')%>
-    <div class="container">
-        <h1>New Post</h1>
-        <div>
-            <textarea id="newpostTitle" placeholder="제목을 입력하세요"></textarea>
-        </div>
-        <div>
-            <textarea id="newpostContents" placeholder="내용을 입력하세요"></textarea>
-        </div>
-        <div>
-            <button class="blueButton" id="newpostBackBtn">Back</button>
-            <button class="blueButton" id="newpostSubmitBtn">Submit</button>
+    <div class="newpost-container">
+        <div class="newpost-area">
+            <h1>New Post</h1>
+            <div>
+                <textarea id="newpostTitle" placeholder="제목을 입력하세요"></textarea>
+            </div>
+            <div>
+                <textarea id="newpostContents" placeholder="내용을 입력하세요"></textarea>
+            </div>
+            <div>
+                <button class="blueButton" id="newpostBackBtn">Back</button>
+                <button class="blueButton" id="newpostSubmitBtn">Submit</button>
+            </div>
         </div>
     </div>
 </body>

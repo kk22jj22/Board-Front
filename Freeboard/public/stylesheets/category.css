@@ -9,7 +9,7 @@
 
     width: 57%;
 
-    margin-top: 2rem;
+    margin-top: 1rem;
     margin-bottom: 1rem;
 
     font-weight: bold;
@@ -91,11 +91,13 @@
     font-size: 12px;
 
     border: 1px solid #911C99;
+    border-radius: 8px;
     color: black;
     text-decoration: none;
 }
 
 #paginatation-selected {
     background-color: #911C99;
+    border-radius: 8px;
     color: white;
 }

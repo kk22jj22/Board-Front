@@ -23,7 +23,14 @@ function newPost() {
 
 function cateTitleSet() {
     let currentCategory = getCurrentCategory()
-    getById('cateTitle').textContent = '🤟'+currentCategory
+
+    if(currentCategory === 'category1') {
+        getById('cateTitle').textContent = '🤟'+'일상'
+    } else if(currentCategory === 'category2') {
+        getById('cateTitle').textContent = '🤟'+'정보'
+    } else if(currentCategory === 'category3') {
+        getById('cateTitle').textContent = '🤟'+'유머'
+    }
 }
 
 async function getPostLists() {
@@ -35,8 +42,6 @@ async function getPostLists() {
     let category = getCurrentCategory()
     let category2 = getCurrentCategory2()
     let cateId = getCateId()
-    let boardNoCnt = 0
-    let cntArr = []
 
     const getPostLists = await new getPostController().getPost(pageNo, numsOfPages, category)
     const trlength = getPostLists.boardList.length
@@ -45,7 +50,6 @@ async function getPostLists() {
     let perPage = 5 
     let lastPage = getPostLists.lastPage 
     let pageGroup = totalCount / perPage 
-
 
     if(totalCount === 0) {
         getById('post-list-body-none').style.display = 'block';
@@ -72,10 +76,7 @@ async function getPostLists() {
             let tdTitleA = document.createElement('a')
             tdTitleA.setAttribute('href', `/postcontents?boardId=`+tdBoardId+`&cateId=`+cateId)
             let tdTitleAText = document.createTextNode(getPostLists.boardList[i].title + ' (💭' + getPostLists.boardList[i].commentCount+')')
-   
-            // let tdCommentCount = document.createElement('td')
-            // tdCommentCount.textContent = getPostLists.boardList[i].commentCount 
-            
+             
             let tdViews = document.createElement('td')
             tdViews.textContent = getPostLists.boardList[i].views
     
@@ -90,7 +91,6 @@ async function getPostLists() {
             tr.appendChild(tdTitle)
             tdTitle.appendChild(tdTitleA)
             tdTitleA.appendChild(tdTitleAText)
-            // tr.appendChild(tdCommentCount)
             tr.appendChild(tdViews)
             tr.appendChild(tdDate)
             tr.appendChild(tdNickName)   
@@ -108,9 +108,10 @@ async function getPostLists() {
             break
         } else {
             let cells = rows[r].getElementsByTagName('td')
-            rows[r].cells[0].textContent = i+1
+            rows[r].cells[0].textContent = i
     
             r = r+1;
+            console.log(i)
         }
     }
     paging(lastPage)
@@ -123,9 +124,7 @@ function paging(lastPage) {
     let params = new URLSearchParams(location.search)
     let selectedPage = params.get('page')
 
-    // 이전버튼, 다음버튼 추가 필요
     for(let i=1; i<=lastPage; i++) {
-
         let page = document.createElement('a')
         page.setAttribute('href', `/category?cateId=`+cateId+`&page=`+i)
         page.setAttribute('class', 'pagination')
@@ -135,7 +134,6 @@ function paging(lastPage) {
         pageArea.appendChild(page)
     }
     
-    // 다음버튼
     if((lastPage > 5) && (lastPage % 5) === 0) {
         let nextPageBtn = document.createElement('a')
         nextPageBtn.setAttribute('id', 'nextPageBtn')

@@ -1,0 +1,80 @@
+.container-signup {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    height: 90vh;
+}
+
+.signup-area {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 30vw;
+    height: 50vh;
+
+    border: 1px solid rgba(128, 128, 128, 0.329);
+    border-radius: 8px;
+
+    padding: 1rem;
+}
+
+.signup-title {
+    display: flex;
+
+    margin-bottom: 1rem;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.signup-text {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.signupInput {
+    width: 12vw;
+    height: 3vh;
+    
+    margin-right: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    padding: 5px;
+
+    font-size: 16px;
+
+    border: 1px solid rgba(128, 128, 128, 0.329);
+    border-radius: 8px;
+    
+}
+  
+#passwordConfirmInput {
+    margin-top: -5px;
+}
+
+#passwordMsg {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+#signupSubmitBtn {
+    width: 78%;
+    border: 0;
+    border-radius: 10px;
+    padding: 15px;
+
+    height: 45px;
+    font-size: 16px;
+
+    margin: 10px 0;
+
+    font-weight: bold;
+
+    background-color: #911C99;
+    color: white;
+}

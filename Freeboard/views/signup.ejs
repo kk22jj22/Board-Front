@@ -6,39 +6,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign up</title>
 </head>
+<link rel="stylesheet" type="text/css" href="/stylesheets/signup.css">
 <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
 <body>
     <script type="module" src="/javascripts/views/signup.js"></script>
     <%-include ('nav.ejs')%>
-    <div class="container">
-        <h1>Sign up</h1>
-        <div>
-            NAME
+    <div class="container-signup">
+        <div class="signup-area">
             <div>
-                <input class="signupInput" id="nameInput" type="text" placeholder="이름">               
-            </div>
-            NICKNAME
-            <div>
-                <input class="signupInput" id="nicknameInput" type="text" placeholder="닉네임">
-                <button class="blueButton" id="nicknameCheckBtn">Check</button>
-                <span id="nicknameMsg"></span>
-            </div>
-            ID
-            <div>
-                <input class="signupInput" id="emailInput" type="text" placeholder="abcd@naver.com">
-                <button class="blueButton" id="emailCheckBtn">Check</button>  
-                <span id="emailMsg"></span>
-            </div>
-            PASSWORD
-            <div>
-                <input class="signupInput" id="passwordInput" type="password" placeholder="비밀번호">
+                <span class="signup-title">Sign up</span>
             </div>
             <div>
-                <input class="signupInput" id="passwordConfirmInput" type="password" placeholder="비밀번호 확인">
-                <span id="passwordMsg"></span>
-            </div>
-            <div>
-                <button class="blueButton" id="signupSubmitBtn">Submit</button>
+                <span class="signup-text">NAME</span>
+                <div>
+                    <input class="signupInput" id="nameInput" type="text" placeholder="이름">               
+                </div>
+                <span class="signup-text">NICKNAME</span>
+                <div>
+                    <input class="signupInput" id="nicknameInput" type="text" placeholder="닉네임">
+                    <button class="blueButton" id="nicknameCheckBtn">Check</button>
+                    <span id="nicknameMsg"></span>
+                </div>
+                <span class="signup-text">ID</span>
+                <div>
+                    <input class="signupInput" id="emailInput" type="text" placeholder="abcd@naver.com">
+                    <button class="puppleBtn" id="emailCheckBtn">Check</button>  
+                    <span id="emailMsg"></span>
+                </div>
+                <span class="signup-text">PASSWORD</span>
+                <div>
+                    <input class="signupInput" id="passwordInput" type="password" placeholder="비밀번호">
+                </div>
+                <div>
+                    <input class="signupInput" id="passwordConfirmInput" type="password" placeholder="비밀번호 확인">
+                </div>
+                <div>
+                    <span id="passwordMsg"></span>
+                </div>
+                <div>
+                    <button id="signupSubmitBtn">Submit</button>
+                </div>
             </div>
         </div>
     </div>

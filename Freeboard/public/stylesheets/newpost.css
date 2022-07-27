@@ -1,0 +1,34 @@
+.newpost-container {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+
+.newpost-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    height: 70vh;
+
+    margin-top: -1rem;
+    box-sizing: border-box;
+}
+
+#newpostTitle {
+    width: 35vw;
+    height: 3vh;
+  
+    line-height: 3vh;
+    resize: none;
+}
+  
+#newpostContents {
+    width: 35vw;
+    height: 25vh;
+    resize: none;
+  
+    margin-top: 0.8rem;
+    margin-bottom: 1rem;
+}

@@ -44,7 +44,6 @@
 }
 
 .login-container input:focus{
-
     outline: none;
     background-color: rgba(208, 227, 255, 0.474);
 }
