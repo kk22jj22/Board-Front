@@ -56,10 +56,7 @@ async function getPostLists() {
         getById('post-list-body-none').innerHTML = '작성된 게시물이 없습니다'
         console.log('없지롱')
     }
-
-    // const boardId = getPostLists.boardList[0].boardId
-    // const tdlength = Object.keys(getPostLists.list[0]).length
-
+    
     for(let i=0; i<trlength; i++) {
         if(getPostLists.boardList[i].category === category || category2) {    
             const tr = document.createElement('tr')
