@@ -30,5 +30,11 @@
     resize: none;
   
     margin-top: 0.8rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.2rem;
+}
+
+textarea {
+    border-color: grey;
+    border-radius: 8px;
+    padding: 10px;
 }

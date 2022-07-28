@@ -39,7 +39,7 @@ async function setHotPosts() {
     let numofPages = 999
     let category = 'all'
     let cateId = ''
-    let hotSort = 10
+    let hotSort = 15
     
     const getAllPost2 = await new getPostController().getPost(pageNo, numofPages, category)
 
@@ -114,7 +114,7 @@ async function setNewPosts() {
     let numofPages = 999
     let category = 'all'
     let cateId = ''
-    let newSort = 10
+    let newSort = 15
     const getAllPost = await new getPostController().getPost(pageNo, numofPages, category)
 
     for(let i=0; i<newSort; i++) {

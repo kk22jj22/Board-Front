@@ -79,7 +79,7 @@ ul {
 
   margin-top: 5rem;
 
-  height: 60vh;
+  height: 65vh;
 }
 
 .main-posts-area {
@@ -101,6 +101,8 @@ table {
 
 .main-table {
   margin-top: 10px;
+
+  text-align: center;
 
   border-top: 1px solid rgb(172, 172, 172);
   border-bottom: 1px solid rgb(172, 172, 172);
@@ -124,9 +126,9 @@ table {
   border-radius: 8px;
   border-style: none;
 
-  font-size: 16px;
-
   margin-top: 1rem;
+
+  font-size: 16px;
   text-decoration: none;
   color: white;
   cursor: pointer;
