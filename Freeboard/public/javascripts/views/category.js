@@ -60,8 +60,6 @@ async function getPostLists() {
     // const boardId = getPostLists.boardList[0].boardId
     // const tdlength = Object.keys(getPostLists.list[0]).length
 
-    // 추가 작업 필요 : 컬럼 별 width
-
     for(let i=0; i<trlength; i++) {
         if(getPostLists.boardList[i].category === category || category2) {    
             const tr = document.createElement('tr')
